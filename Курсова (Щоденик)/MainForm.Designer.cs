@@ -40,12 +40,12 @@
             this.btnLookover = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
             this.table = new System.Windows.Forms.DataGridView();
-            this.DatePicker = new System.Windows.Forms.DateTimePicker();
-            this.TimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePickerTill = new System.Windows.Forms.DateTimePicker();
             this.done = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datetimetill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.place = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
@@ -188,8 +188,8 @@
             this.table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.done,
             this.name,
-            this.date,
-            this.time,
+            this.datetime,
+            this.datetimetill,
             this.place});
             this.table.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.table.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -206,23 +206,23 @@
             this.table.Size = new System.Drawing.Size(1092, 293);
             this.table.TabIndex = 15;
             // 
-            // DatePicker
+            // DateTimePicker
             // 
-            this.DatePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DatePicker.Location = new System.Drawing.Point(217, 94);
-            this.DatePicker.Name = "DatePicker";
-            this.DatePicker.Size = new System.Drawing.Size(319, 33);
-            this.DatePicker.TabIndex = 16;
-            this.DatePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.DateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DateTimePicker.Location = new System.Drawing.Point(217, 94);
+            this.DateTimePicker.Name = "DateTimePicker";
+            this.DateTimePicker.Size = new System.Drawing.Size(319, 33);
+            this.DateTimePicker.TabIndex = 16;
+            this.DateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // TimePickerFrom
+            // DateTimePickerTill
             // 
-            this.TimePickerFrom.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TimePickerFrom.Location = new System.Drawing.Point(217, 140);
-            this.TimePickerFrom.Name = "TimePickerFrom";
-            this.TimePickerFrom.Size = new System.Drawing.Size(319, 33);
-            this.TimePickerFrom.TabIndex = 18;
-            this.TimePickerFrom.ValueChanged += new System.EventHandler(this.TimePicker1_ValueChanged);
+            this.DateTimePickerTill.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DateTimePickerTill.Location = new System.Drawing.Point(217, 140);
+            this.DateTimePickerTill.Name = "DateTimePickerTill";
+            this.DateTimePickerTill.Size = new System.Drawing.Size(319, 33);
+            this.DateTimePickerTill.TabIndex = 18;
+            this.DateTimePickerTill.ValueChanged += new System.EventHandler(this.TimePicker1_ValueChanged);
             // 
             // done
             // 
@@ -239,19 +239,19 @@
             this.name.Name = "name";
             this.name.ReadOnly = true;
             // 
-            // date
+            // datetime
             // 
-            this.date.HeaderText = "Дата та час";
-            this.date.MinimumWidth = 6;
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
+            this.datetime.HeaderText = "Дата та час";
+            this.datetime.MinimumWidth = 6;
+            this.datetime.Name = "datetime";
+            this.datetime.ReadOnly = true;
             // 
-            // time
+            // datetimetill
             // 
-            this.time.HeaderText = "Тривалість (до)";
-            this.time.MinimumWidth = 6;
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
+            this.datetimetill.HeaderText = "Тривалість (до)";
+            this.datetimetill.MinimumWidth = 6;
+            this.datetimetill.Name = "datetimetill";
+            this.datetimetill.ReadOnly = true;
             // 
             // place
             // 
@@ -266,8 +266,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1092, 621);
-            this.Controls.Add(this.TimePickerFrom);
-            this.Controls.Add(this.DatePicker);
+            this.Controls.Add(this.DateTimePickerTill);
+            this.Controls.Add(this.DateTimePicker);
             this.Controls.Add(this.table);
             this.Controls.Add(this.btnLookover);
             this.Controls.Add(this.btnChange);
@@ -285,6 +285,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Щоденник";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -303,12 +304,12 @@
         private Button btnLookover;
         private Button btnChange;
         private DataGridView table;
-        private DateTimePicker DatePicker;
-        private DateTimePicker TimePickerFrom;
+        private DateTimePicker DateTimePicker;
+        private DateTimePicker DateTimePickerTill;
         private DataGridViewCheckBoxColumn done;
         private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn date;
-        private DataGridViewTextBoxColumn time;
+        private DataGridViewTextBoxColumn datetime;
+        private DataGridViewTextBoxColumn datetimetill;
         private DataGridViewTextBoxColumn place;
     }
 }
