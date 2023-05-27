@@ -42,11 +42,6 @@
             this.table = new System.Windows.Forms.DataGridView();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DateTimePickerTill = new System.Windows.Forms.DateTimePicker();
-            this.done = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datetimetill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.place = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,7 +99,6 @@
             this.textName.Size = new System.Drawing.Size(319, 32);
             this.textName.TabIndex = 6;
             this.textName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textName.TextChanged += new System.EventHandler(this.textName_TextChanged);
             // 
             // textPlace
             // 
@@ -116,7 +110,6 @@
             this.textPlace.Size = new System.Drawing.Size(319, 32);
             this.textPlace.TabIndex = 10;
             this.textPlace.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textPlace.TextChanged += new System.EventHandler(this.textPlace_TextChanged);
             // 
             // btnAdd
             // 
@@ -161,7 +154,6 @@
             this.btnLookover.TabIndex = 14;
             this.btnLookover.Text = "Переглянути";
             this.btnLookover.UseVisualStyleBackColor = false;
-            this.btnLookover.Click += new System.EventHandler(this.btnLookover_Click);
             // 
             // btnChange
             // 
@@ -185,12 +177,6 @@
             this.table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.table.BackgroundColor = System.Drawing.Color.Silver;
             this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.done,
-            this.name,
-            this.datetime,
-            this.datetimetill,
-            this.place});
             this.table.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.table.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.table.Location = new System.Drawing.Point(0, 328);
@@ -213,7 +199,6 @@
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(319, 33);
             this.DateTimePicker.TabIndex = 16;
-            this.DateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // DateTimePickerTill
             // 
@@ -222,43 +207,6 @@
             this.DateTimePickerTill.Name = "DateTimePickerTill";
             this.DateTimePickerTill.Size = new System.Drawing.Size(319, 33);
             this.DateTimePickerTill.TabIndex = 18;
-            this.DateTimePickerTill.ValueChanged += new System.EventHandler(this.TimePicker1_ValueChanged);
-            // 
-            // done
-            // 
-            this.done.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.done.HeaderText = "Стан";
-            this.done.MinimumWidth = 6;
-            this.done.Name = "done";
-            this.done.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Назва";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // datetime
-            // 
-            this.datetime.HeaderText = "Дата та час";
-            this.datetime.MinimumWidth = 6;
-            this.datetime.Name = "datetime";
-            this.datetime.ReadOnly = true;
-            // 
-            // datetimetill
-            // 
-            this.datetimetill.HeaderText = "Тривалість (до)";
-            this.datetimetill.MinimumWidth = 6;
-            this.datetimetill.Name = "datetimetill";
-            this.datetimetill.ReadOnly = true;
-            // 
-            // place
-            // 
-            this.place.HeaderText = "Місце проведення";
-            this.place.MinimumWidth = 6;
-            this.place.Name = "place";
-            this.place.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -285,7 +233,6 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Щоденник";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -306,10 +253,5 @@
         private DataGridView table;
         private DateTimePicker DateTimePicker;
         private DateTimePicker DateTimePickerTill;
-        private DataGridViewCheckBoxColumn done;
-        private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn datetime;
-        private DataGridViewTextBoxColumn datetimetill;
-        private DataGridViewTextBoxColumn place;
     }
 }
