@@ -54,7 +54,7 @@ namespace Курсова__Щоденик_
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
@@ -311,5 +311,11 @@ namespace Курсова__Щоденик_
             }
         }
 
+        private void btnWatch_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            WatchForm watchForm = new WatchForm();
+            watchForm.Show();
+        }
     }
 }

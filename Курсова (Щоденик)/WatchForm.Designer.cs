@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnWatch = new System.Windows.Forms.Button();
-            this.table = new System.Windows.Forms.DataGridView();
-            this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.CloseButton = new System.Windows.Forms.Button();
+            this.WatchButton = new System.Windows.Forms.Button();
+            this.Table = new System.Windows.Forms.DataGridView();
+            this.DatePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,63 +49,65 @@
             this.label1.TabIndex = 35;
             this.label1.Text = "Перегляд подій за обраною датою";
             // 
-            // btnClose
+            // CloseButton
             // 
-            this.btnClose.BackColor = System.Drawing.Color.White;
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnClose.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnClose.Location = new System.Drawing.Point(1011, 6);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(40, 36);
-            this.btnClose.TabIndex = 34;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = false;
+            this.CloseButton.BackColor = System.Drawing.Color.White;
+            this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CloseButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CloseButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CloseButton.Location = new System.Drawing.Point(1011, 6);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(40, 36);
+            this.CloseButton.TabIndex = 34;
+            this.CloseButton.Text = "X";
+            this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // btnWatch
+            // WatchButton
             // 
-            this.btnWatch.BackColor = System.Drawing.Color.White;
-            this.btnWatch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWatch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnWatch.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnWatch.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnWatch.Location = new System.Drawing.Point(449, 172);
-            this.btnWatch.Name = "btnWatch";
-            this.btnWatch.Size = new System.Drawing.Size(185, 51);
-            this.btnWatch.TabIndex = 30;
-            this.btnWatch.Text = "Переглянути";
-            this.btnWatch.UseVisualStyleBackColor = false;
+            this.WatchButton.BackColor = System.Drawing.Color.White;
+            this.WatchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.WatchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.WatchButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.WatchButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.WatchButton.Location = new System.Drawing.Point(449, 172);
+            this.WatchButton.Name = "WatchButton";
+            this.WatchButton.Size = new System.Drawing.Size(185, 51);
+            this.WatchButton.TabIndex = 30;
+            this.WatchButton.Text = "Переглянути";
+            this.WatchButton.UseVisualStyleBackColor = false;
+            this.WatchButton.Click += new System.EventHandler(this.WatchButton_Click);
             // 
-            // table
+            // Table
             // 
-            this.table.AllowUserToAddRows = false;
-            this.table.AllowUserToDeleteRows = false;
-            this.table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.table.BackgroundColor = System.Drawing.Color.Silver;
-            this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.table.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.table.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.table.Location = new System.Drawing.Point(0, 264);
-            this.table.Name = "table";
-            this.table.ReadOnly = true;
-            this.table.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.table.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.table.RowTemplate.Height = 29;
-            this.table.Size = new System.Drawing.Size(1064, 326);
-            this.table.TabIndex = 31;
+            this.Table.AllowUserToAddRows = false;
+            this.Table.AllowUserToDeleteRows = false;
+            this.Table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Table.BackgroundColor = System.Drawing.Color.Silver;
+            this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Table.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Table.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Table.Location = new System.Drawing.Point(0, 264);
+            this.Table.Name = "Table";
+            this.Table.ReadOnly = true;
+            this.Table.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Table.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.Table.RowTemplate.Height = 29;
+            this.Table.Size = new System.Drawing.Size(1064, 326);
+            this.Table.TabIndex = 31;
             // 
-            // DateTimePicker
+            // DatePicker
             // 
-            this.DateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DateTimePicker.Location = new System.Drawing.Point(502, 110);
-            this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(235, 27);
-            this.DateTimePicker.TabIndex = 37;
+            this.DatePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DatePicker.Location = new System.Drawing.Point(502, 110);
+            this.DatePicker.Name = "DatePicker";
+            this.DatePicker.Size = new System.Drawing.Size(235, 27);
+            this.DatePicker.TabIndex = 37;
             // 
             // label3
             // 
@@ -114,9 +116,9 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(355, 113);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 24);
+            this.label3.Size = new System.Drawing.Size(135, 24);
             this.label3.TabIndex = 36;
-            this.label3.Text = "Дата та час:";
+            this.label3.Text = "Оберіть дату:";
             // 
             // WatchForm
             // 
@@ -124,16 +126,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1064, 590);
-            this.Controls.Add(this.DateTimePicker);
+            this.Controls.Add(this.DatePicker);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.table);
-            this.Controls.Add(this.btnWatch);
+            this.Controls.Add(this.CloseButton);
+            this.Controls.Add(this.Table);
+            this.Controls.Add(this.WatchButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WatchForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WatchForm";
-            ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,10 +145,10 @@
         #endregion
 
         private Label label1;
-        private Button btnClose;
-        private Button btnWatch;
-        private DataGridView table;
-        private DateTimePicker DateTimePicker;
+        private Button CloseButton;
+        private Button WatchButton;
+        private DataGridView Table;
+        private DateTimePicker DatePicker;
         private Label label3;
     }
 }
