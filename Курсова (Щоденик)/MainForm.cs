@@ -119,15 +119,12 @@ namespace Курсова__Щоденик_
             {
                 TimeSpan timeRemaining = nextEvent.datetime - DateTime.Now;
 
-                // Округлення значення часу до найближчого цілого значення
                 timeRemaining = new TimeSpan((long)Math.Round((double)timeRemaining.Ticks, MidpointRounding.AwayFromZero));
 
-                // Визначення окремих компонентів часу
                 int days = timeRemaining.Days;
                 int hours = timeRemaining.Hours;
                 int minutes = timeRemaining.Minutes;
 
-                // Форматування показників часу
                 string formattedTimeRemaining = "";
                 if (days > 0)
                 {
@@ -316,6 +313,13 @@ namespace Курсова__Щоденик_
             this.Hide();
             WatchForm watchForm = new WatchForm();
             watchForm.Show();
+        }
+
+        private void YesterdayEventsButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            YesterdayEventsForm yesterdayeventsform = new YesterdayEventsForm();
+            yesterdayeventsform.Show();
         }
     }
 }
