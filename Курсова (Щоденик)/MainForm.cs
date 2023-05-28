@@ -11,9 +11,16 @@ namespace Курсова__Щоденик_
     {
         private BindingList<Event> events = new BindingList<Event>();
 
+        private bool isDragging = false;
+        private Point dragStartPosition;
+
+
         public MainForm()
         {
             InitializeComponent();
+
+            this.Shown += MainForm_Shown;
+
             DateTimePicker.Format = DateTimePickerFormat.Custom;
             DateTimePicker.CustomFormat = "dd/MM/yyyy HH:mm";
             DateTimePicker.ShowUpDown = true;
@@ -23,6 +30,10 @@ namespace Курсова__Щоденик_
 
             LoadEventsFromJson();
             table.DataSource = events;
+
+            this.MouseDown += MainForm_MouseDown;
+            this.MouseMove += MainForm_MouseMove;
+            this.MouseUp += MainForm_MouseUp;
 
             table.Columns["isDone"].HeaderText = "Стан";
             table.Columns["name"].HeaderText = "Назва";
@@ -41,6 +52,34 @@ namespace Курсова__Щоденик_
 
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MainForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = true;
+                dragStartPosition = e.Location;
+            }
+        }
+
+        private void MainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                Point diff = Point.Subtract(e.Location, new Size(dragStartPosition));
+                this.Location = Point.Add(this.Location, new Size(diff));
+            }
+        }
+
+        private void MainForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
+
         private void SaveEventsToJson()
         {
             string json = JsonConvert.SerializeObject(events);
@@ -54,6 +93,63 @@ namespace Курсова__Щоденик_
                 string json = File.ReadAllText("events.json");
                 events = JsonConvert.DeserializeObject<BindingList<Event>>(json);
             }
+        }
+
+        private Event GetNextEvent()
+        {
+            Event nextEvent = null;
+            DateTime currentTime = DateTime.Now;
+
+            foreach (Event ev in events)
+            {
+                if (ev.datetime >= currentTime && (nextEvent == null || ev.datetime < nextEvent.datetime))
+                {
+                    nextEvent = ev;
+                }
+            }
+
+            return nextEvent;
+        }
+
+        private void ShowNextEventReminder()
+        {
+            Event nextEvent = GetNextEvent();
+
+            if (nextEvent != null)
+            {
+                TimeSpan timeRemaining = nextEvent.datetime - DateTime.Now;
+
+                // Округлення значення часу до найближчого цілого значення
+                timeRemaining = new TimeSpan((long)Math.Round((double)timeRemaining.Ticks, MidpointRounding.AwayFromZero));
+
+                // Визначення окремих компонентів часу
+                int days = timeRemaining.Days;
+                int hours = timeRemaining.Hours;
+                int minutes = timeRemaining.Minutes;
+
+                // Форматування показників часу
+                string formattedTimeRemaining = "";
+                if (days > 0)
+                {
+                    formattedTimeRemaining += $"{days} {(days == 1 ? "день" : "дні")} ";
+                }
+                if (hours > 0)
+                {
+                    formattedTimeRemaining += $"{hours} {(hours == 1 ? "година" : "годин")} ";
+                }
+                if (minutes > 0)
+                {
+                    formattedTimeRemaining += $"{minutes} {(minutes == 1 ? "хвилина" : "хвилин")}";
+                }
+
+                MessageBox.Show($"Найближча подія: {nextEvent.name}\nДата та час: {nextEvent.datetime}\nЗалишилося часу:" +
+                    $" {formattedTimeRemaining}", "Нагадування");
+            }
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            ShowNextEventReminder();
         }
 
         private bool CheckEventOverlapChange(Event newEvent)
@@ -214,5 +310,7 @@ namespace Курсова__Щоденик_
                 }
             }
         }
+
+        
     }
 }
