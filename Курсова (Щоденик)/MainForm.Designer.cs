@@ -37,7 +37,7 @@
             this.textPlace = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnLookover = new System.Windows.Forms.Button();
+            this.btnWatch = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
             this.table = new System.Windows.Forms.DataGridView();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -143,19 +143,20 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnLookover
+            // btnWatch
             // 
-            this.btnLookover.BackColor = System.Drawing.Color.White;
-            this.btnLookover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLookover.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLookover.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLookover.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnLookover.Location = new System.Drawing.Point(870, 240);
-            this.btnLookover.Name = "btnLookover";
-            this.btnLookover.Size = new System.Drawing.Size(185, 51);
-            this.btnLookover.TabIndex = 14;
-            this.btnLookover.Text = "Переглянути";
-            this.btnLookover.UseVisualStyleBackColor = false;
+            this.btnWatch.BackColor = System.Drawing.Color.White;
+            this.btnWatch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWatch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnWatch.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnWatch.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnWatch.Location = new System.Drawing.Point(870, 240);
+            this.btnWatch.Name = "btnWatch";
+            this.btnWatch.Size = new System.Drawing.Size(185, 51);
+            this.btnWatch.TabIndex = 14;
+            this.btnWatch.Text = "Переглянути";
+            this.btnWatch.UseVisualStyleBackColor = false;
+            this.btnWatch.Click += new System.EventHandler(this.btnWatch_Click);
             // 
             // btnChange
             // 
@@ -247,7 +248,7 @@
             this.Controls.Add(this.DateTimePickerTill);
             this.Controls.Add(this.DateTimePicker);
             this.Controls.Add(this.table);
-            this.Controls.Add(this.btnLookover);
+            this.Controls.Add(this.btnWatch);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -279,7 +280,7 @@
         private TextBox textPlace;
         private Button btnAdd;
         private Button btnDelete;
-        private Button btnLookover;
+        private Button btnWatch;
         private Button btnChange;
         private DataGridView table;
         private DateTimePicker DateTimePicker;
