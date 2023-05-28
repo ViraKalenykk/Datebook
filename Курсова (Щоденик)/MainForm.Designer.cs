@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -187,11 +187,11 @@
             this.table.Name = "table";
             this.table.ReadOnly = true;
             this.table.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.table.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.table.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.table.RowTemplate.Height = 29;
             this.table.Size = new System.Drawing.Size(1092, 264);
             this.table.TabIndex = 15;
@@ -250,7 +250,7 @@
             this.YesterdayEventsButton.Name = "YesterdayEventsButton";
             this.YesterdayEventsButton.Size = new System.Drawing.Size(410, 51);
             this.YesterdayEventsButton.TabIndex = 21;
-            this.YesterdayEventsButton.Text = "Прострочені справи";
+            this.YesterdayEventsButton.Text = "Вчорашні справи";
             this.YesterdayEventsButton.UseVisualStyleBackColor = false;
             this.YesterdayEventsButton.Click += new System.EventHandler(this.YesterdayEventsButton_Click);
             // 

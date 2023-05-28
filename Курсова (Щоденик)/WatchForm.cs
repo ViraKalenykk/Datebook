@@ -36,6 +36,7 @@ namespace Курсова__Щоденик_
             checkBoxColumn.ReadOnly = false;
             Table.Columns.Remove("isDone");
             Table.Columns.Insert(0, checkBoxColumn);
+            Table.CellContentClick += Table_CellContentClick;
         }
 
         private void LoadEventsFromJson()
@@ -57,15 +58,23 @@ namespace Курсова__Щоденик_
         private void WatchButton_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = DatePicker.Value.Date;
-
             var filteredEvents = events.Where(ev => ev.datetime.Date == selectedDate).ToList();
-
             filteredEvents.Sort((ev1, ev2) => ev1.datetime.CompareTo(ev2.datetime));
-
             BindingList<Event> sortedEvents = new BindingList<Event>(filteredEvents);
-
             Table.DataSource = sortedEvents;
         }
 
+        private void Table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == Table.Columns["isDone"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)Table.Rows[e.RowIndex].Cells["isDone"];
+                bool currentStatus = (bool)checkBoxCell.Value;
+                checkBoxCell.Value = !currentStatus;
+
+                Event selectedEvent = events[e.RowIndex];
+                selectedEvent.isDone = !currentStatus;
+            }
+        }
     }
 }
