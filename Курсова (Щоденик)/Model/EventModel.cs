@@ -7,19 +7,19 @@ namespace Курсова__Щоденик_.Model
 {
     public class Event
     {
-        public bool isDone { get; set; }
-        public string name { get; set; }
-        public DateTime datetime { get; set; }
-        public DateTime datetimetill { get; set; }
-        public string place { get; set; }
+        public bool IsDone { get; set; }
+        public string Name { get; set; }
+        public DateTime DateTime { get; set; }
+        public DateTime DateTimeTill { get; set; }
+        public string Place { get; set; }
 
-        public Event(bool isDone, string name, DateTime datetime, DateTime datetimetill, string place)
+        public Event(bool isDone, string name, DateTime dateTime, DateTime dateTimeTill, string place)
         {
-            this.isDone = isDone;
-            this.name = name;
-            this.datetime = datetime;
-            this.datetimetill = datetimetill;
-            this.place = place;
+            this.IsDone = isDone;
+            this.Name = name;
+            this.DateTime = dateTime;
+            this.DateTimeTill = dateTimeTill;
+            this.Place = place;
         }
     }
 

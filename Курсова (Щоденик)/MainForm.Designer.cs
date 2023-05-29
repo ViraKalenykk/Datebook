@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textName = new System.Windows.Forms.TextBox();
             this.textPlace = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnWatch = new System.Windows.Forms.Button();
-            this.btnChange = new System.Windows.Forms.Button();
-            this.table = new System.Windows.Forms.DataGridView();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.WatchButton = new System.Windows.Forms.Button();
+            this.ChangeButton = new System.Windows.Forms.Button();
+            this.Table = new System.Windows.Forms.DataGridView();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DateTimePickerTill = new System.Windows.Forms.DateTimePicker();
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.YesterdayEventsButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -114,87 +114,87 @@
             this.textPlace.TabIndex = 10;
             this.textPlace.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnAdd
+            // AddButton
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.White;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAdd.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAdd.Location = new System.Drawing.Point(650, 96);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(185, 51);
-            this.btnAdd.TabIndex = 11;
-            this.btnAdd.Text = "Додати";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.AddButton.BackColor = System.Drawing.Color.White;
+            this.AddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.AddButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AddButton.Location = new System.Drawing.Point(650, 96);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(185, 51);
+            this.AddButton.TabIndex = 11;
+            this.AddButton.Text = "Додати";
+            this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // btnDelete
+            // DeleteButton
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.White;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnDelete.Location = new System.Drawing.Point(875, 96);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(185, 51);
-            this.btnDelete.TabIndex = 12;
-            this.btnDelete.Text = "Видалити";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.DeleteButton.BackColor = System.Drawing.Color.White;
+            this.DeleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DeleteButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DeleteButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DeleteButton.Location = new System.Drawing.Point(875, 96);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(185, 51);
+            this.DeleteButton.TabIndex = 12;
+            this.DeleteButton.Text = "Видалити";
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // btnWatch
+            // WatchButton
             // 
-            this.btnWatch.BackColor = System.Drawing.Color.White;
-            this.btnWatch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWatch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnWatch.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnWatch.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnWatch.Location = new System.Drawing.Point(875, 177);
-            this.btnWatch.Name = "btnWatch";
-            this.btnWatch.Size = new System.Drawing.Size(185, 51);
-            this.btnWatch.TabIndex = 14;
-            this.btnWatch.Text = "Переглянути";
-            this.btnWatch.UseVisualStyleBackColor = false;
-            this.btnWatch.Click += new System.EventHandler(this.btnWatch_Click);
+            this.WatchButton.BackColor = System.Drawing.Color.White;
+            this.WatchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.WatchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.WatchButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.WatchButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.WatchButton.Location = new System.Drawing.Point(875, 177);
+            this.WatchButton.Name = "WatchButton";
+            this.WatchButton.Size = new System.Drawing.Size(185, 51);
+            this.WatchButton.TabIndex = 14;
+            this.WatchButton.Text = "Переглянути";
+            this.WatchButton.UseVisualStyleBackColor = false;
+            this.WatchButton.Click += new System.EventHandler(this.WatchButton_Click);
             // 
-            // btnChange
+            // ChangeButton
             // 
-            this.btnChange.BackColor = System.Drawing.Color.White;
-            this.btnChange.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChange.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnChange.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnChange.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnChange.Location = new System.Drawing.Point(650, 177);
-            this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(185, 51);
-            this.btnChange.TabIndex = 13;
-            this.btnChange.Text = "Змінити";
-            this.btnChange.UseVisualStyleBackColor = false;
-            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            this.ChangeButton.BackColor = System.Drawing.Color.White;
+            this.ChangeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ChangeButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ChangeButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ChangeButton.Location = new System.Drawing.Point(650, 177);
+            this.ChangeButton.Name = "ChangeButton";
+            this.ChangeButton.Size = new System.Drawing.Size(185, 51);
+            this.ChangeButton.TabIndex = 13;
+            this.ChangeButton.Text = "Змінити";
+            this.ChangeButton.UseVisualStyleBackColor = false;
+            this.ChangeButton.Click += new System.EventHandler(this.ChangeButton_Click);
             // 
-            // table
+            // Table
             // 
-            this.table.AllowUserToAddRows = false;
-            this.table.AllowUserToDeleteRows = false;
-            this.table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.table.BackgroundColor = System.Drawing.Color.Silver;
-            this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.table.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.table.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.table.Location = new System.Drawing.Point(0, 339);
-            this.table.Name = "table";
-            this.table.ReadOnly = true;
-            this.table.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.table.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.table.RowTemplate.Height = 29;
-            this.table.Size = new System.Drawing.Size(1092, 264);
-            this.table.TabIndex = 15;
+            this.Table.AllowUserToAddRows = false;
+            this.Table.AllowUserToDeleteRows = false;
+            this.Table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Table.BackgroundColor = System.Drawing.Color.Silver;
+            this.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Table.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Table.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Table.Location = new System.Drawing.Point(0, 339);
+            this.Table.Name = "Table";
+            this.Table.ReadOnly = true;
+            this.Table.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Table.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.Table.RowTemplate.Height = 29;
+            this.Table.Size = new System.Drawing.Size(1092, 264);
+            this.Table.TabIndex = 15;
             // 
             // DateTimePicker
             // 
@@ -265,11 +265,11 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.DateTimePickerTill);
             this.Controls.Add(this.DateTimePicker);
-            this.Controls.Add(this.table);
-            this.Controls.Add(this.btnWatch);
-            this.Controls.Add(this.btnChange);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.Table);
+            this.Controls.Add(this.WatchButton);
+            this.Controls.Add(this.ChangeButton);
+            this.Controls.Add(this.DeleteButton);
+            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.textPlace);
             this.Controls.Add(this.textName);
             this.Controls.Add(this.label6);
@@ -283,7 +283,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Щоденник";
-            ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,11 +296,11 @@
         private Label label6;
         private TextBox textName;
         private TextBox textPlace;
-        private Button btnAdd;
-        private Button btnDelete;
-        private Button btnWatch;
-        private Button btnChange;
-        private DataGridView table;
+        private Button AddButton;
+        private Button DeleteButton;
+        private Button WatchButton;
+        private Button ChangeButton;
+        private DataGridView Table;
         private DateTimePicker DateTimePicker;
         private DateTimePicker DateTimePickerTill;
         private Button btnClose;

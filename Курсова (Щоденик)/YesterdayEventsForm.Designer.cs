@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.NewDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.newDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
             this.YesterdayTable = new System.Windows.Forms.DataGridView();
             this.YesterdayWatchButton = new System.Windows.Forms.Button();
             this.YesterdayDeleteButton = new System.Windows.Forms.Button();
-            this.NewDateTimeTillPicker = new System.Windows.Forms.DateTimePicker();
+            this.newDateTimeTillPicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.YesterdayTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // NewDateTimePicker
+            // newDateTimePicker
             // 
-            this.NewDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NewDateTimePicker.Location = new System.Drawing.Point(514, 98);
-            this.NewDateTimePicker.Name = "NewDateTimePicker";
-            this.NewDateTimePicker.Size = new System.Drawing.Size(235, 27);
-            this.NewDateTimePicker.TabIndex = 43;
+            this.newDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.newDateTimePicker.Location = new System.Drawing.Point(514, 98);
+            this.newDateTimePicker.Name = "newDateTimePicker";
+            this.newDateTimePicker.Size = new System.Drawing.Size(235, 27);
+            this.newDateTimePicker.TabIndex = 43;
             // 
             // label3
             // 
@@ -84,7 +84,7 @@
             this.CloseButton.TabIndex = 40;
             this.CloseButton.Text = "X";
             this.CloseButton.UseVisualStyleBackColor = false;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click_1);
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // YesterdayTable
             // 
@@ -99,11 +99,11 @@
             this.YesterdayTable.Name = "YesterdayTable";
             this.YesterdayTable.ReadOnly = true;
             this.YesterdayTable.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.YesterdayTable.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.YesterdayTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.YesterdayTable.RowTemplate.Height = 29;
             this.YesterdayTable.Size = new System.Drawing.Size(985, 289);
             this.YesterdayTable.TabIndex = 39;
@@ -136,13 +136,13 @@
             this.YesterdayDeleteButton.Text = "Видалити";
             this.YesterdayDeleteButton.UseVisualStyleBackColor = false;
             // 
-            // NewDateTimeTillPicker
+            // newDateTimeTillPicker
             // 
-            this.NewDateTimeTillPicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NewDateTimeTillPicker.Location = new System.Drawing.Point(514, 145);
-            this.NewDateTimeTillPicker.Name = "NewDateTimeTillPicker";
-            this.NewDateTimeTillPicker.Size = new System.Drawing.Size(235, 27);
-            this.NewDateTimeTillPicker.TabIndex = 46;
+            this.newDateTimeTillPicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.newDateTimeTillPicker.Location = new System.Drawing.Point(514, 145);
+            this.newDateTimeTillPicker.Name = "newDateTimeTillPicker";
+            this.newDateTimeTillPicker.Size = new System.Drawing.Size(235, 27);
+            this.newDateTimeTillPicker.TabIndex = 46;
             // 
             // label2
             // 
@@ -161,10 +161,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(985, 599);
-            this.Controls.Add(this.NewDateTimeTillPicker);
+            this.Controls.Add(this.newDateTimeTillPicker);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.YesterdayDeleteButton);
-            this.Controls.Add(this.NewDateTimePicker);
+            this.Controls.Add(this.newDateTimePicker);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CloseButton);
@@ -183,14 +183,14 @@
 
         #endregion
 
-        private DateTimePicker NewDateTimePicker;
+        private DateTimePicker newDateTimePicker;
         private Label label3;
         private Label label1;
         private Button CloseButton;
         private DataGridView YesterdayTable;
         private Button YesterdayWatchButton;
         private Button YesterdayDeleteButton;
-        private DateTimePicker NewDateTimeTillPicker;
+        private DateTimePicker newDateTimeTillPicker;
         private Label label2;
     }
 }

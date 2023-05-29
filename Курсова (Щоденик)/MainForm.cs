@@ -9,10 +9,10 @@ namespace Курсова__Щоденик_
 {
     public partial class MainForm : Form
     {
-        private BindingList<Event> events = new BindingList<Event>();
+        private BindingList<Event> EventList = new BindingList<Event>();
 
-        private bool isDragging = false;
-        private Point dragStartPosition;
+        private bool IsDragging = false;
+        private Point DragStartPosition;
 
 
         public MainForm()
@@ -29,26 +29,26 @@ namespace Курсова__Щоденик_
             DateTimePickerTill.ShowUpDown = true;
 
             LoadEventsFromJson();
-            table.DataSource = events;
+            Table.DataSource = EventList;
 
             this.MouseDown += MainForm_MouseDown;
             this.MouseMove += MainForm_MouseMove;
             this.MouseUp += MainForm_MouseUp;
 
-            table.Columns["isDone"].HeaderText = "Стан";
-            table.Columns["name"].HeaderText = "Назва";
-            table.Columns["datetime"].HeaderText = "Дата та час";
-            table.Columns["datetimetill"].HeaderText = "Тривалість (до)";
-            table.Columns["place"].HeaderText = "Місце проведення";
+            Table.Columns["isDone"].HeaderText = "Стан";
+            Table.Columns["name"].HeaderText = "Назва";
+            Table.Columns["datetime"].HeaderText = "Дата та час";
+            Table.Columns["datetimetill"].HeaderText = "Тривалість (до)";
+            Table.Columns["place"].HeaderText = "Місце проведення";
 
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
             checkBoxColumn.DataPropertyName = "isDone";
             checkBoxColumn.HeaderText = "Стан";
             checkBoxColumn.Name = "isDone";
             checkBoxColumn.ReadOnly = false;
-            table.Columns.Remove("isDone");
-            table.Columns.Insert(0, checkBoxColumn);
-            table.CellContentClick += Table_CellContentClick;
+            Table.Columns.Remove("isDone");
+            Table.Columns.Insert(0, checkBoxColumn);
+            Table.CellContentClick += Table_CellContentClick;
 
         }
 
@@ -61,28 +61,28 @@ namespace Курсова__Щоденик_
         {
             if (e.Button == MouseButtons.Left)
             {
-                isDragging = true;
-                dragStartPosition = e.Location;
+                IsDragging = true;
+                DragStartPosition = e.Location;
             }
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isDragging)
+            if (IsDragging)
             {
-                Point diff = Point.Subtract(e.Location, new Size(dragStartPosition));
+                Point diff = Point.Subtract(e.Location, new Size(DragStartPosition));
                 this.Location = Point.Add(this.Location, new Size(diff));
             }
         }
 
         private void MainForm_MouseUp(object sender, MouseEventArgs e)
         {
-            isDragging = false;
+            IsDragging = false;
         }
 
         private void SaveEventsToJson()
         {
-            string json = JsonConvert.SerializeObject(events);
+            string json = JsonConvert.SerializeObject(EventList);
             File.WriteAllText("events.json", json);
         }
 
@@ -91,7 +91,7 @@ namespace Курсова__Щоденик_
             if (File.Exists("events.json"))
             {
                 string json = File.ReadAllText("events.json");
-                events = JsonConvert.DeserializeObject<BindingList<Event>>(json);
+                EventList = JsonConvert.DeserializeObject<BindingList<Event>>(json);
             }
         }
 
@@ -100,9 +100,9 @@ namespace Курсова__Щоденик_
             Event nextEvent = null;
             DateTime currentTime = DateTime.Now;
 
-            foreach (Event ev in events)
+            foreach (Event ev in EventList)
             {
-                if (ev.datetime >= currentTime && (nextEvent == null || ev.datetime < nextEvent.datetime))
+                if (ev.DateTime >= currentTime && (nextEvent == null || ev.DateTime < nextEvent.DateTime))
                 {
                     nextEvent = ev;
                 }
@@ -117,7 +117,7 @@ namespace Курсова__Щоденик_
 
             if (nextEvent != null)
             {
-                TimeSpan timeRemaining = nextEvent.datetime - DateTime.Now;
+                TimeSpan timeRemaining = nextEvent.DateTime - DateTime.Now;
 
                 timeRemaining = new TimeSpan((long)Math.Round((double)timeRemaining.Ticks, MidpointRounding.AwayFromZero));
 
@@ -139,7 +139,7 @@ namespace Курсова__Щоденик_
                     formattedTimeRemaining += $"{minutes} {(minutes == 1 ? "хвилина" : "хвилин")}";
                 }
 
-                MessageBox.Show($"Найближча подія: {nextEvent.name}\nДата та час: {nextEvent.datetime}\nЗалишилося часу:" +
+                MessageBox.Show($"Найближча подія: {nextEvent.Name}\nДата та час: {nextEvent.DateTime}\nЗалишилося часу:" +
                     $" {formattedTimeRemaining}", "Нагадування");
             }
         }
@@ -151,12 +151,12 @@ namespace Курсова__Щоденик_
 
         private bool CheckEventOverlapChange(Event newEvent)
         {
-            foreach (Event existingEvent in events)
+            foreach (Event existingEvent in EventList)
             {
-                if (existingEvent == table.SelectedRows[0].DataBoundItem)
+                if (existingEvent == Table.SelectedRows[0].DataBoundItem)
                     continue;
 
-                if (newEvent.datetime < existingEvent.datetimetill && newEvent.datetimetill > existingEvent.datetime)
+                if (newEvent.DateTime < existingEvent.DateTimeTill && newEvent.DateTimeTill > existingEvent.DateTime)
                 {
                     return true; // Є накладання подій
                 }
@@ -166,9 +166,9 @@ namespace Курсова__Щоденик_
 
         private bool CheckEventOverlapAdd(Event newEvent)
         {
-            foreach (Event existingEvent in events)
+            foreach (Event existingEvent in EventList)
             {
-                if (newEvent.datetime < existingEvent.datetimetill && newEvent.datetimetill > existingEvent.datetime)
+                if (newEvent.DateTime < existingEvent.DateTimeTill && newEvent.DateTimeTill > existingEvent.DateTime)
                 {
                     return true; // Є накладання подій
                 }
@@ -179,20 +179,20 @@ namespace Курсова__Щоденик_
 
         private void Table_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == table.Columns["isDone"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == Table.Columns["isDone"].Index && e.RowIndex >= 0)
             {
-                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)table.Rows[e.RowIndex].Cells["isDone"];
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)Table.Rows[e.RowIndex].Cells["isDone"];
                 bool currentStatus = (bool)checkBoxCell.Value;
                 checkBoxCell.Value = !currentStatus;
 
                 // Оновити відповідну подію у списку events
-                Event selectedEvent = events[e.RowIndex];
-                selectedEvent.isDone = !currentStatus;
+                Event selectedEvent = EventList[e.RowIndex];
+                selectedEvent.IsDone = !currentStatus;
             }
         }
 
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             string eventName = textName.Text.Trim();
             DateTime eventDateTime = DateTimePicker.Value;
@@ -224,7 +224,7 @@ namespace Курсова__Щоденик_
             }
             else
             {
-                events.Add(newEvent);
+                EventList.Add(newEvent);
 
                 // Очистити поля вводу
                 textName.Text = string.Empty;
@@ -237,24 +237,24 @@ namespace Курсова__Щоденик_
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if (table.SelectedRows.Count > 0)
+            if (Table.SelectedRows.Count > 0)
             {
                 DialogResult result = MessageBox.Show("Ви впевнені, що хочете видалити цю подію?", "Підтвердження видалення", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    Event selectedEvent = table.SelectedRows[0].DataBoundItem as Event;
-                    events.Remove(selectedEvent); // Видаляємо обрану подію зі списку
+                    Event selectedEvent = Table.SelectedRows[0].DataBoundItem as Event;
+                    EventList.Remove(selectedEvent); // Видаляємо обрану подію зі списку
                     SaveEventsToJson(); // Зберігаємо події у JSON файл
                 }
             }
         }
 
-        private void btnChange_Click(object sender, EventArgs e)
+        private void ChangeButton_Click(object sender, EventArgs e)
         {
-            if (table.SelectedRows.Count > 0)
+            if (Table.SelectedRows.Count > 0)
             {
                 string eventName = textName.Text.Trim();
                 DateTime eventDateTime = DateTimePicker.Value;
@@ -276,12 +276,12 @@ namespace Курсова__Щоденик_
                     return;
                 }
 
-                Event selectedEvent = table.SelectedRows[0].DataBoundItem as Event;
+                Event selectedEvent = Table.SelectedRows[0].DataBoundItem as Event;
 
-                selectedEvent.name = eventName;
-                selectedEvent.datetime = eventDateTime;
-                selectedEvent.datetimetill = eventDateTimeTill;
-                selectedEvent.place = eventPlace;
+                selectedEvent.Name = eventName;
+                selectedEvent.DateTime = eventDateTime;
+                selectedEvent.DateTimeTill = eventDateTimeTill;
+                selectedEvent.Place = eventPlace;
 
                 if (CheckEventOverlapChange(selectedEvent))
                 {
@@ -294,7 +294,7 @@ namespace Курсова__Щоденик_
                     "Підтвердження змін", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        table.Refresh();
+                        Table.Refresh();
 
                         // Очистити поля вводу
                         textName.Text = string.Empty;
@@ -308,7 +308,7 @@ namespace Курсова__Щоденик_
             }
         }
 
-        private void btnWatch_Click(object sender, EventArgs e)
+        private void WatchButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             WatchForm watchForm = new WatchForm();

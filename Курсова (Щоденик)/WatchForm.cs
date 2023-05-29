@@ -15,28 +15,28 @@ namespace Курсова__Щоденик_
 {
     public partial class WatchForm : Form
     {
-        private BindingList<Event> events;
+        private BindingList<Event> EventList;
 
         public WatchForm()
         {
             InitializeComponent();
             LoadEventsFromJson();
-            Table.DataSource = events;
+            WatchTable.DataSource = EventList;
 
-            Table.Columns["isDone"].HeaderText = "Стан";
-            Table.Columns["name"].HeaderText = "Назва";
-            Table.Columns["datetime"].HeaderText = "Дата та час";
-            Table.Columns["datetimetill"].HeaderText = "Тривалість (до)";
-            Table.Columns["place"].HeaderText = "Місце проведення";
+            WatchTable.Columns["isDone"].HeaderText = "Стан";
+            WatchTable.Columns["name"].HeaderText = "Назва";
+            WatchTable.Columns["datetime"].HeaderText = "Дата та час";
+            WatchTable.Columns["datetimetill"].HeaderText = "Тривалість (до)";
+            WatchTable.Columns["place"].HeaderText = "Місце проведення";
 
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
             checkBoxColumn.DataPropertyName = "isDone";
             checkBoxColumn.HeaderText = "Стан";
             checkBoxColumn.Name = "isDone";
             checkBoxColumn.ReadOnly = false;
-            Table.Columns.Remove("isDone");
-            Table.Columns.Insert(0, checkBoxColumn);
-            Table.CellContentClick += Table_CellContentClick;
+            WatchTable.Columns.Remove("isDone");
+            WatchTable.Columns.Insert(0, checkBoxColumn);
+            WatchTable.CellContentClick += Table_CellContentClick;
         }
 
         private void LoadEventsFromJson()
@@ -44,7 +44,7 @@ namespace Курсова__Щоденик_
             if (File.Exists("events.json"))
             {
                 string json = File.ReadAllText("events.json");
-                events = JsonConvert.DeserializeObject<BindingList<Event>>(json);
+                EventList = JsonConvert.DeserializeObject<BindingList<Event>>(json);
             }
         }
 
@@ -58,22 +58,22 @@ namespace Курсова__Щоденик_
         private void WatchButton_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = DatePicker.Value.Date;
-            var filteredEvents = events.Where(ev => ev.datetime.Date == selectedDate).ToList();
-            filteredEvents.Sort((ev1, ev2) => ev1.datetime.CompareTo(ev2.datetime));
+            var filteredEvents = EventList.Where(ev => ev.DateTime.Date == selectedDate).ToList();
+            filteredEvents.Sort((ev1, ev2) => ev1.DateTime.CompareTo(ev2.DateTime));
             BindingList<Event> sortedEvents = new BindingList<Event>(filteredEvents);
-            Table.DataSource = sortedEvents;
+            WatchTable.DataSource = sortedEvents;
         }
 
         private void Table_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == Table.Columns["isDone"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == WatchTable.Columns["isDone"].Index && e.RowIndex >= 0)
             {
-                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)Table.Rows[e.RowIndex].Cells["isDone"];
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)WatchTable.Rows[e.RowIndex].Cells["isDone"];
                 bool currentStatus = (bool)checkBoxCell.Value;
                 checkBoxCell.Value = !currentStatus;
 
-                Event selectedEvent = events[e.RowIndex];
-                selectedEvent.isDone = !currentStatus;
+                Event selectedEvent = EventList[e.RowIndex];
+                selectedEvent.IsDone = !currentStatus;
             }
         }
     }

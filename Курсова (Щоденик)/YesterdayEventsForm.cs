@@ -15,13 +15,13 @@ namespace Курсова__Щоденик_
 {
     public partial class YesterdayEventsForm : Form
     {
-        private BindingList<Event> events;
+        private BindingList<Event> EventList;
 
         public YesterdayEventsForm()
         {
             InitializeComponent();
             LoadEventsFromJson();
-            YesterdayTable.DataSource = events;
+            YesterdayTable.DataSource = EventList;
 
             YesterdayTable.Columns["isDone"].HeaderText = "Стан";
             YesterdayTable.Columns["name"].HeaderText = "Назва";
@@ -37,12 +37,12 @@ namespace Курсова__Щоденик_
             YesterdayTable.Columns.Remove("isDone");
             YesterdayTable.Columns.Insert(0, checkBoxColumn);
 
-            NewDateTimePicker.Format = DateTimePickerFormat.Custom;
-            NewDateTimePicker.CustomFormat = "dd/MM/yyyy HH:mm";
-            NewDateTimePicker.ShowUpDown = true;
-            NewDateTimeTillPicker.Format = DateTimePickerFormat.Custom;
-            NewDateTimeTillPicker.CustomFormat = "dd/MM/yyyy HH:mm";
-            NewDateTimeTillPicker.ShowUpDown = true;
+            newDateTimePicker.Format = DateTimePickerFormat.Custom;
+            newDateTimePicker.CustomFormat = "dd/MM/yyyy HH:mm";
+            newDateTimePicker.ShowUpDown = true;
+            newDateTimeTillPicker.Format = DateTimePickerFormat.Custom;
+            newDateTimeTillPicker.CustomFormat = "dd/MM/yyyy HH:mm";
+            newDateTimeTillPicker.ShowUpDown = true;
         }
 
         private void LoadEventsFromJson()
@@ -50,19 +50,19 @@ namespace Курсова__Щоденик_
             if (File.Exists("events.json"))
             {
                 string json = File.ReadAllText("events.json");
-                events = JsonConvert.DeserializeObject<BindingList<Event>>(json);
+                EventList = JsonConvert.DeserializeObject<BindingList<Event>>(json);
 
-                events = new BindingList<Event>(events.Where(e => e.datetimetill < DateTime.Now).ToList());
+                EventList = new BindingList<Event>(EventList.Where(e => e.DateTimeTill < DateTime.Now).ToList());
             }
         }
 
         private void SaveEventsToJson()
         {
-            string json = JsonConvert.SerializeObject(events);
+            string json = JsonConvert.SerializeObject(EventList);
             File.WriteAllText("events.json", json);
         }
 
-        private void CloseButton_Click_1(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             MainForm mainForm = new MainForm();
@@ -79,7 +79,7 @@ namespace Курсова__Щоденик_
                 if (result == DialogResult.Yes)
                 {
                     Event selectedEvent = YesterdayTable.SelectedRows[0].DataBoundItem as Event;
-                    events.Remove(selectedEvent); // Видаляємо обрану подію зі списку
+                    EventList.Remove(selectedEvent); // Видаляємо обрану подію зі списку
                     SaveEventsToJson(); // Зберігаємо події у JSON файл
                 }
             }
