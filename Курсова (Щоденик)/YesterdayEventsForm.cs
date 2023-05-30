@@ -79,12 +79,10 @@ namespace Курсова__Щоденик_
                 if (result == DialogResult.Yes)
                 {
                     Event selectedEvent = YesterdayTable.SelectedRows[0].DataBoundItem as Event;
-                    EventList.Remove(selectedEvent); // Видаляємо обрану подію зі списку
-                    SaveEventsToJson(); // Зберігаємо події у JSON файл
+                    EventList.Remove(selectedEvent);
+                    SaveEventsToJson();
                 }
             }
         }
-
-
     }
 }

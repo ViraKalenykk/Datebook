@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,6 +45,8 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.YesterdayEventsButton = new System.Windows.Forms.Button();
+            this.DatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +55,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(133, 113);
+            this.label2.Location = new System.Drawing.Point(127, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 24);
             this.label2.TabIndex = 1;
@@ -64,7 +66,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(80, 161);
+            this.label3.Location = new System.Drawing.Point(74, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 24);
             this.label3.TabIndex = 2;
@@ -75,7 +77,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(45, 204);
+            this.label4.Location = new System.Drawing.Point(39, 180);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(160, 24);
             this.label4.TabIndex = 3;
@@ -86,7 +88,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(22, 254);
+            this.label6.Location = new System.Drawing.Point(16, 230);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(183, 24);
             this.label6.TabIndex = 5;
@@ -97,7 +99,7 @@
             this.textName.BackColor = System.Drawing.Color.White;
             this.textName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textName.Location = new System.Drawing.Point(224, 105);
+            this.textName.Location = new System.Drawing.Point(218, 81);
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(319, 32);
             this.textName.TabIndex = 6;
@@ -108,7 +110,7 @@
             this.textPlace.BackColor = System.Drawing.Color.White;
             this.textPlace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textPlace.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textPlace.Location = new System.Drawing.Point(224, 246);
+            this.textPlace.Location = new System.Drawing.Point(218, 222);
             this.textPlace.Name = "textPlace";
             this.textPlace.Size = new System.Drawing.Size(319, 32);
             this.textPlace.TabIndex = 10;
@@ -121,9 +123,9 @@
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AddButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.AddButton.Location = new System.Drawing.Point(650, 96);
+            this.AddButton.Location = new System.Drawing.Point(568, 81);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(185, 51);
+            this.AddButton.Size = new System.Drawing.Size(228, 51);
             this.AddButton.TabIndex = 11;
             this.AddButton.Text = "Додати";
             this.AddButton.UseVisualStyleBackColor = false;
@@ -136,9 +138,9 @@
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DeleteButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.DeleteButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.DeleteButton.Location = new System.Drawing.Point(875, 96);
+            this.DeleteButton.Location = new System.Drawing.Point(826, 81);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(185, 51);
+            this.DeleteButton.Size = new System.Drawing.Size(228, 51);
             this.DeleteButton.TabIndex = 12;
             this.DeleteButton.Text = "Видалити";
             this.DeleteButton.UseVisualStyleBackColor = false;
@@ -151,9 +153,9 @@
             this.WatchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.WatchButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.WatchButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.WatchButton.Location = new System.Drawing.Point(875, 177);
+            this.WatchButton.Location = new System.Drawing.Point(826, 166);
             this.WatchButton.Name = "WatchButton";
-            this.WatchButton.Size = new System.Drawing.Size(185, 51);
+            this.WatchButton.Size = new System.Drawing.Size(228, 51);
             this.WatchButton.TabIndex = 14;
             this.WatchButton.Text = "Переглянути";
             this.WatchButton.UseVisualStyleBackColor = false;
@@ -166,9 +168,9 @@
             this.ChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ChangeButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ChangeButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ChangeButton.Location = new System.Drawing.Point(650, 177);
+            this.ChangeButton.Location = new System.Drawing.Point(568, 256);
             this.ChangeButton.Name = "ChangeButton";
-            this.ChangeButton.Size = new System.Drawing.Size(185, 51);
+            this.ChangeButton.Size = new System.Drawing.Size(228, 51);
             this.ChangeButton.TabIndex = 13;
             this.ChangeButton.Text = "Змінити";
             this.ChangeButton.UseVisualStyleBackColor = false;
@@ -187,11 +189,11 @@
             this.Table.Name = "Table";
             this.Table.ReadOnly = true;
             this.Table.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Table.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Table.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Table.RowTemplate.Height = 29;
             this.Table.Size = new System.Drawing.Size(1092, 264);
             this.Table.TabIndex = 15;
@@ -199,7 +201,7 @@
             // DateTimePicker
             // 
             this.DateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DateTimePicker.Location = new System.Drawing.Point(224, 152);
+            this.DateTimePicker.Location = new System.Drawing.Point(218, 128);
             this.DateTimePicker.MinDate = new System.DateTime(2023, 5, 28, 0, 0, 0, 0);
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(319, 33);
@@ -208,7 +210,7 @@
             // DateTimePickerTill
             // 
             this.DateTimePickerTill.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DateTimePickerTill.Location = new System.Drawing.Point(224, 198);
+            this.DateTimePickerTill.Location = new System.Drawing.Point(218, 174);
             this.DateTimePickerTill.Name = "DateTimePickerTill";
             this.DateTimePickerTill.Size = new System.Drawing.Size(319, 33);
             this.DateTimePickerTill.TabIndex = 18;
@@ -231,11 +233,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(443, 22);
+            this.label1.Location = new System.Drawing.Point(467, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(241, 48);
+            this.label1.Size = new System.Drawing.Size(180, 36);
             this.label1.TabIndex = 20;
             this.label1.Text = "Щоденник";
             // 
@@ -246,13 +248,32 @@
             this.YesterdayEventsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.YesterdayEventsButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.YesterdayEventsButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.YesterdayEventsButton.Location = new System.Drawing.Point(650, 254);
+            this.YesterdayEventsButton.Location = new System.Drawing.Point(826, 256);
             this.YesterdayEventsButton.Name = "YesterdayEventsButton";
-            this.YesterdayEventsButton.Size = new System.Drawing.Size(410, 51);
+            this.YesterdayEventsButton.Size = new System.Drawing.Size(228, 51);
             this.YesterdayEventsButton.TabIndex = 21;
             this.YesterdayEventsButton.Text = "Вчорашні справи";
             this.YesterdayEventsButton.UseVisualStyleBackColor = false;
             this.YesterdayEventsButton.Click += new System.EventHandler(this.YesterdayEventsButton_Click);
+            // 
+            // DatePicker
+            // 
+            this.DatePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DatePicker.Location = new System.Drawing.Point(568, 184);
+            this.DatePicker.Name = "DatePicker";
+            this.DatePicker.Size = new System.Drawing.Size(235, 33);
+            this.DatePicker.TabIndex = 39;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(568, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(202, 24);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Дата для перегляду:";
             // 
             // MainForm
             // 
@@ -260,6 +281,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1092, 603);
+            this.Controls.Add(this.DatePicker);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.YesterdayEventsButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
@@ -306,5 +329,7 @@
         private Button btnClose;
         private Label label1;
         private Button YesterdayEventsButton;
+        private DateTimePicker DatePicker;
+        private Label label5;
     }
 }

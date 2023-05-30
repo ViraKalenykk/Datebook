@@ -185,9 +185,9 @@ namespace Курсова__Щоденик_
                 bool currentStatus = (bool)checkBoxCell.Value;
                 checkBoxCell.Value = !currentStatus;
 
-                // Оновити відповідну подію у списку events
                 Event selectedEvent = EventList[e.RowIndex];
                 selectedEvent.IsDone = !currentStatus;
+                SaveEventsToJson();
             }
         }
 
@@ -241,7 +241,8 @@ namespace Курсова__Щоденик_
         {
             if (Table.SelectedRows.Count > 0)
             {
-                DialogResult result = MessageBox.Show("Ви впевнені, що хочете видалити цю подію?", "Підтвердження видалення", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Ви впевнені, що хочете видалити цю подію?", 
+                    "Підтвердження видалення", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -310,9 +311,11 @@ namespace Курсова__Щоденик_
 
         private void WatchButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            WatchForm watchForm = new WatchForm();
-            watchForm.Show();
+            DateTime selectedDate = DatePicker.Value.Date;
+            var filteredEvents = EventList.Where(ev => ev.DateTime.Date == selectedDate).ToList();
+            filteredEvents.Sort((ev1, ev2) => ev1.DateTime.CompareTo(ev2.DateTime));
+            BindingList<Event> sortedEvents = new BindingList<Event>(filteredEvents);
+            Table.DataSource = sortedEvents;
         }
 
         private void YesterdayEventsButton_Click(object sender, EventArgs e)
@@ -321,5 +324,7 @@ namespace Курсова__Щоденик_
             YesterdayEventsForm yesterdayeventsform = new YesterdayEventsForm();
             yesterdayeventsform.Show();
         }
+
+        
     }
 }
