@@ -22,13 +22,12 @@ namespace Курсова__Щоденик_
             this.Shown += MainForm_Shown;
 
             DateTimePicker.Format = DateTimePickerFormat.Custom;
-            DateTimePicker.CustomFormat = "dd/MM/yyyy HH:mm";
+            DateTimePicker.CustomFormat = "dd/MM/yyyy HH:mm:00";
             DateTimePicker.ShowUpDown = true;
             DateTimePickerTill.Format = DateTimePickerFormat.Custom;
-            DateTimePickerTill.CustomFormat = "dd/MM/yyyy HH:mm";
+            DateTimePickerTill.CustomFormat = "dd/MM/yyyy HH:mm:00";
             DateTimePickerTill.ShowUpDown = true;
 
-            LoadEventsFromJson();
             Table.DataSource = EventList;
 
             this.MouseDown += MainForm_MouseDown;
@@ -50,6 +49,9 @@ namespace Курсова__Щоденик_
             Table.Columns.Insert(0, checkBoxColumn);
             Table.CellContentClick += Table_CellContentClick;
 
+            LoadEventsFromJson();
+
+            Table.SelectionChanged += Table_SelectionChanged;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -93,6 +95,10 @@ namespace Курсова__Щоденик_
                 string json = File.ReadAllText("events.json");
                 EventList = JsonConvert.DeserializeObject<BindingList<Event>>(json);
             }
+
+            var sortedEvents = EventList.OrderBy(ev => ev.DateTime).ToList();
+            BindingList<Event> sortedEventList = new BindingList<Event>(sortedEvents);
+            Table.DataSource = sortedEventList;
         }
 
         private Event GetNextEvent()
@@ -156,7 +162,8 @@ namespace Курсова__Щоденик_
                 if (existingEvent == Table.SelectedRows[0].DataBoundItem)
                     continue;
 
-                if (newEvent.DateTime < existingEvent.DateTimeTill && newEvent.DateTimeTill > existingEvent.DateTime)
+                if (newEvent.DateTime < existingEvent.DateTimeTill && newEvent.DateTime != existingEvent.DateTimeTill  
+                    && newEvent.DateTimeTill > existingEvent.DateTime && newEvent.DateTimeTill != existingEvent.DateTime)
                 {
                     return true; // Є накладання подій
                 }
@@ -168,7 +175,8 @@ namespace Курсова__Щоденик_
         {
             foreach (Event existingEvent in EventList)
             {
-                if (newEvent.DateTime < existingEvent.DateTimeTill && newEvent.DateTimeTill > existingEvent.DateTime)
+                if (newEvent.DateTime < existingEvent.DateTimeTill && newEvent.DateTime != existingEvent.DateTimeTill  
+                    && newEvent.DateTimeTill > existingEvent.DateTime && newEvent.DateTimeTill != existingEvent.DateTime)
                 {
                     return true; // Є накладання подій
                 }
@@ -190,7 +198,6 @@ namespace Курсова__Щоденик_
                 SaveEventsToJson();
             }
         }
-
 
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -234,6 +241,7 @@ namespace Курсова__Щоденик_
 
                 // Зберегти зміни у JSON файл
                 SaveEventsToJson();
+                LoadEventsFromJson();
             }
         }
 
@@ -249,7 +257,30 @@ namespace Курсова__Щоденик_
                     Event selectedEvent = Table.SelectedRows[0].DataBoundItem as Event;
                     EventList.Remove(selectedEvent); // Видаляємо обрану подію зі списку
                     SaveEventsToJson(); // Зберігаємо події у JSON файл
+                    LoadEventsFromJson();
                 }
+            }
+        }
+
+        private void Table_SelectionChanged(object sender, EventArgs e)
+        {
+            if (Table.SelectedRows.Count > 0)
+            {
+                Event selectedEvent = Table.SelectedRows[0].DataBoundItem as Event;
+
+                // Заповнення полів вводу даними з вибраної строки
+                textName.Text = selectedEvent.Name;
+                DateTimePicker.Value = selectedEvent.DateTime;
+                DateTimePickerTill.Value = selectedEvent.DateTimeTill;
+                textPlace.Text = selectedEvent.Place;
+            }
+            else
+            {
+                // Очистка полів вводу, якщо не вибрано жодної строки
+                textName.Text = string.Empty;
+                DateTimePicker.Value = DateTime.Now;
+                DateTimePickerTill.Value = DateTime.Now;
+                textPlace.Text = string.Empty;
             }
         }
 
@@ -318,13 +349,16 @@ namespace Курсова__Щоденик_
             Table.DataSource = sortedEvents;
         }
 
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            LoadEventsFromJson();
+        }
+
         private void YesterdayEventsButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             YesterdayEventsForm yesterdayeventsform = new YesterdayEventsForm();
             yesterdayeventsform.Show();
         }
-
-        
     }
 }

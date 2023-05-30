@@ -47,6 +47,7 @@
             this.YesterdayEventsButton = new System.Windows.Forms.Button();
             this.DatePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,7 +156,7 @@
             this.WatchButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.WatchButton.Location = new System.Drawing.Point(826, 166);
             this.WatchButton.Name = "WatchButton";
-            this.WatchButton.Size = new System.Drawing.Size(228, 51);
+            this.WatchButton.Size = new System.Drawing.Size(195, 51);
             this.WatchButton.TabIndex = 14;
             this.WatchButton.Text = "Переглянути";
             this.WatchButton.UseVisualStyleBackColor = false;
@@ -275,12 +276,28 @@
             this.label5.TabIndex = 38;
             this.label5.Text = "Дата для перегляду:";
             // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.White;
+            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BackButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BackButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackButton.Location = new System.Drawing.Point(1027, 166);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(43, 51);
+            this.BackButton.TabIndex = 40;
+            this.BackButton.Text = "<";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1092, 603);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.DatePicker);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.YesterdayEventsButton);
@@ -331,5 +348,6 @@
         private Button YesterdayEventsButton;
         private DateTimePicker DatePicker;
         private Label label5;
+        private Button BackButton;
     }
 }
