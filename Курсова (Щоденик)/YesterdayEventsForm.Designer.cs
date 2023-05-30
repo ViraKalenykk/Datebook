@@ -39,6 +39,7 @@
             this.newDateTimeTillPicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.YesterdayTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CloseButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CloseButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.CloseButton.Location = new System.Drawing.Point(933, 3);
+            this.CloseButton.Location = new System.Drawing.Point(933, 12);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(40, 36);
             this.CloseButton.TabIndex = 40;
@@ -167,12 +168,28 @@
             this.label4.TabIndex = 47;
             this.label4.Text = "Для перенесення події на майбутьнє:";
             // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.White;
+            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BackButton.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BackButton.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackButton.Location = new System.Drawing.Point(12, 12);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(40, 36);
+            this.BackButton.TabIndex = 48;
+            this.BackButton.Text = "<-";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // YesterdayEventsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(985, 599);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.newDateTimeTillPicker);
             this.Controls.Add(this.label2);
@@ -206,5 +223,6 @@
         private DateTimePicker newDateTimeTillPicker;
         private Label label2;
         private Label label4;
+        private Button BackButton;
     }
 }

@@ -64,9 +64,7 @@ namespace Курсова__Щоденик_
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
+            Application.Exit();
         }
 
         private void YesterdayDeleteButton_Click(object sender, EventArgs e)
@@ -83,6 +81,13 @@ namespace Курсова__Щоденик_
                     SaveEventsToJson();
                 }
             }
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
         }
     }
 }
