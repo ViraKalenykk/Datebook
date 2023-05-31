@@ -21,6 +21,11 @@ namespace Курсова__Щоденик_.Model
             this.DateTimeTill = dateTimeTill;
             this.Place = place;
         }
+
+        public bool IsExpired
+        {
+            get { return DateTime.Now > DateTimeTill; }
+        }
     }
 
 }
