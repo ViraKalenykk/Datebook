@@ -203,7 +203,6 @@
             // 
             this.DateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DateTimePicker.Location = new System.Drawing.Point(218, 128);
-            this.DateTimePicker.MinDate = new System.DateTime(2023, 5, 28, 0, 0, 0, 0);
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(319, 33);
             this.DateTimePicker.TabIndex = 16;

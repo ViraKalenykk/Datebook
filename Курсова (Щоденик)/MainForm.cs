@@ -13,7 +13,7 @@ namespace Курсова__Щоденик_
 
         private bool IsDragging = false;
         private Point DragStartPosition;
-
+        private DateTime selectedDate;
 
         public MainForm()
         {
@@ -96,9 +96,19 @@ namespace Курсова__Щоденик_
                 EventList = JsonConvert.DeserializeObject<BindingList<Event>>(json);
             }
 
-            var sortedEvents = EventList.OrderBy(ev => ev.DateTime).ToList();
-            BindingList<Event> sortedEventList = new BindingList<Event>(sortedEvents);
-            Table.DataSource = sortedEventList;
+            if (selectedDate != DateTime.MinValue)
+            {
+                var filteredEvents = EventList.Where(ev => ev.DateTime.Date == selectedDate).ToList();
+                filteredEvents.Sort((ev1, ev2) => ev1.DateTime.CompareTo(ev2.DateTime));
+                BindingList<Event> sortedEventList = new BindingList<Event>(filteredEvents);
+                Table.DataSource = sortedEventList;
+            }
+            else
+            {
+                var sortedEvents = EventList.OrderBy(ev => ev.DateTime).ToList();
+                BindingList<Event> sortedEventList = new BindingList<Event>(sortedEvents);
+                Table.DataSource = sortedEventList;
+            }
         }
 
         private Event GetNextEvent()
@@ -113,7 +123,6 @@ namespace Курсова__Щоденик_
                     nextEvent = ev;
                 }
             }
-
             return nextEvent;
         }
 
@@ -342,7 +351,7 @@ namespace Курсова__Щоденик_
 
         private void WatchButton_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = DatePicker.Value.Date;
+            selectedDate = DatePicker.Value.Date;
             var filteredEvents = EventList.Where(ev => ev.DateTime.Date == selectedDate).ToList();
             filteredEvents.Sort((ev1, ev2) => ev1.DateTime.CompareTo(ev2.DateTime));
             BindingList<Event> sortedEvents = new BindingList<Event>(filteredEvents);
@@ -351,6 +360,7 @@ namespace Курсова__Щоденик_
 
         private void BackButton_Click(object sender, EventArgs e)
         {
+            selectedDate = DateTime.MinValue;
             LoadEventsFromJson();
         }
 

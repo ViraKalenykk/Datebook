@@ -46,7 +46,7 @@
             // newDateTimePicker
             // 
             this.newDateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.newDateTimePicker.Location = new System.Drawing.Point(281, 139);
+            this.newDateTimePicker.Location = new System.Drawing.Point(281, 123);
             this.newDateTimePicker.Name = "newDateTimePicker";
             this.newDateTimePicker.Size = new System.Drawing.Size(235, 27);
             this.newDateTimePicker.TabIndex = 43;
@@ -56,7 +56,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(29, 142);
+            this.label3.Location = new System.Drawing.Point(29, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(246, 24);
             this.label3.TabIndex = 42;
@@ -67,7 +67,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(335, 31);
+            this.label1.Location = new System.Drawing.Point(335, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(379, 48);
             this.label1.TabIndex = 41;
@@ -141,7 +141,7 @@
             // newDateTimeTillPicker
             // 
             this.newDateTimeTillPicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.newDateTimeTillPicker.Location = new System.Drawing.Point(281, 186);
+            this.newDateTimeTillPicker.Location = new System.Drawing.Point(281, 170);
             this.newDateTimeTillPicker.Name = "newDateTimeTillPicker";
             this.newDateTimeTillPicker.Size = new System.Drawing.Size(235, 27);
             this.newDateTimeTillPicker.TabIndex = 46;
@@ -151,7 +151,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(29, 186);
+            this.label2.Location = new System.Drawing.Point(29, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(234, 24);
             this.label2.TabIndex = 45;
@@ -162,7 +162,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(29, 97);
+            this.label4.Location = new System.Drawing.Point(29, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(356, 24);
             this.label4.TabIndex = 47;

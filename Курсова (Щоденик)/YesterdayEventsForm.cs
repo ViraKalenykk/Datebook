@@ -43,6 +43,8 @@ namespace Курсова__Щоденик_
             newDateTimeTillPicker.Format = DateTimePickerFormat.Custom;
             newDateTimeTillPicker.CustomFormat = "dd/MM/yyyy HH:mm";
             newDateTimeTillPicker.ShowUpDown = true;
+
+            LoadEventsFromJson();
         }
 
         private void LoadEventsFromJson()
@@ -54,6 +56,10 @@ namespace Курсова__Щоденик_
 
                 EventList = new BindingList<Event>(EventList.Where(e => e.DateTimeTill < DateTime.Now).ToList());
             }
+
+            var sortedEvents = EventList.OrderBy(ev => ev.DateTime).ToList();
+            BindingList<Event> sortedEventList = new BindingList<Event>(sortedEvents);
+            YesterdayTable.DataSource = sortedEventList;
         }
 
         private void SaveEventsToJson()
@@ -89,5 +95,6 @@ namespace Курсова__Щоденик_
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
+
     }
 }
