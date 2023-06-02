@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(149, 145);
+            this.label2.Location = new System.Drawing.Point(149, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 24);
             this.label2.TabIndex = 1;
@@ -75,7 +75,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(96, 193);
+            this.label3.Location = new System.Drawing.Point(96, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 24);
             this.label3.TabIndex = 2;
@@ -86,7 +86,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(61, 236);
+            this.label4.Location = new System.Drawing.Point(61, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(160, 24);
             this.label4.TabIndex = 3;
@@ -97,7 +97,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(38, 286);
+            this.label6.Location = new System.Drawing.Point(38, 256);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(183, 24);
             this.label6.TabIndex = 5;
@@ -108,7 +108,7 @@
             this.textName.BackColor = System.Drawing.Color.White;
             this.textName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textName.Location = new System.Drawing.Point(240, 137);
+            this.textName.Location = new System.Drawing.Point(240, 107);
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(319, 32);
             this.textName.TabIndex = 6;
@@ -119,7 +119,7 @@
             this.textPlace.BackColor = System.Drawing.Color.White;
             this.textPlace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textPlace.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textPlace.Location = new System.Drawing.Point(240, 278);
+            this.textPlace.Location = new System.Drawing.Point(240, 248);
             this.textPlace.Name = "textPlace";
             this.textPlace.Size = new System.Drawing.Size(319, 32);
             this.textPlace.TabIndex = 10;
@@ -198,11 +198,11 @@
             this.Table.Name = "Table";
             this.Table.ReadOnly = true;
             this.Table.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Table.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Table.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Table.RowTemplate.Height = 29;
             this.Table.Size = new System.Drawing.Size(1173, 283);
             this.Table.TabIndex = 15;
@@ -210,7 +210,7 @@
             // DateTimePicker
             // 
             this.DateTimePicker.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DateTimePicker.Location = new System.Drawing.Point(240, 184);
+            this.DateTimePicker.Location = new System.Drawing.Point(240, 154);
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(319, 33);
             this.DateTimePicker.TabIndex = 16;
@@ -218,7 +218,7 @@
             // DateTimePickerTill
             // 
             this.DateTimePickerTill.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DateTimePickerTill.Location = new System.Drawing.Point(240, 230);
+            this.DateTimePickerTill.Location = new System.Drawing.Point(240, 200);
             this.DateTimePickerTill.Name = "DateTimePickerTill";
             this.DateTimePickerTill.Size = new System.Drawing.Size(319, 33);
             this.DateTimePickerTill.TabIndex = 18;

@@ -242,6 +242,26 @@ namespace Курсова__Щоденик_
             // Додати нову подію до списку events
             Event newEvent = new Event(false, eventName, eventDateTime, eventDateTimeTill, eventPlace);
 
+            foreach (Event existingEvent in EventList) 
+            {
+                if (existingEvent.Name == eventName &&
+                    existingEvent.Place == eventPlace &&
+                    existingEvent.DateTime != eventDateTime)
+                {
+                    string message = string.Format("Подія '{0}' та місцем проведення '{1}'  уже існує на "+ $"{existingEvent.DateTime.ToString("dd.MM.yyyy HH:mm")}. " +
+                        "Ви впевнені, що хочете додати нову подію?", eventName, eventPlace, existingEvent.DateTime);
+
+                    DialogResult result = MessageBox.Show(message, "Попередження", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.No)
+                    {
+                        return; // Відмінити додавання події
+                    }
+
+                    break; // Вийти з циклу, якщо знайдено відповідну подію
+                }
+            }
+
             if (CheckEventOverlapAdd(newEvent))
             {
                 MessageBox.Show("Подія накладається з іншою подією. Будь ласка, перенесіть подію.",
@@ -354,6 +374,14 @@ namespace Курсова__Щоденик_
 
                 Event selectedEvent = Table.SelectedRows[0].DataBoundItem as Event;
 
+                // Перевірити, чи було змінено хоча б одне поле
+                if (selectedEvent.Name == eventName && selectedEvent.DateTime == eventDateTime &&
+                    selectedEvent.DateTimeTill == eventDateTimeTill && selectedEvent.Place == eventPlace)
+                {
+                    MessageBox.Show("Немає змін для цієї події.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 selectedEvent.Name = eventName;
                 selectedEvent.DateTime = eventDateTime;
                 selectedEvent.DateTimeTill = eventDateTimeTill;
@@ -438,6 +466,20 @@ namespace Курсова__Щоденик_
 
                 selectedEvent.DateTime = newDateTime;
                 selectedEvent.DateTimeTill = newDateTime + duration;
+
+                Event updatedEvent = new Event(false, selectedEvent.Name, newDateTime, newDateTime + duration, selectedEvent.Place);
+
+                if (!CheckEventOverlapAdd(updatedEvent))
+                {
+                    selectedEvent.DateTime = newDateTime;
+                    selectedEvent.DateTimeTill = newDateTime + duration;
+                }
+                else
+                {
+                    MessageBox.Show("Подія накладається з іншою подією. Будь ласка, перенесіть подію на інші дату або час.",
+                    "Накладання подій", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             else if (Table.SelectedRows.Count > 1)
             {
@@ -451,11 +493,22 @@ namespace Курсова__Щоденик_
                     DateTime newDateTime = startDate + startTime;
                     TimeSpan duration = selectedEvent.DateTimeTill - selectedEvent.DateTime;
 
-                    selectedEvent.DateTime = newDateTime;
-                    selectedEvent.DateTimeTill = newDateTime + duration;
+                    Event updatedEvent = new Event(false, selectedEvent.Name, newDateTime, newDateTime + duration, selectedEvent.Place);
 
-                    startDate = newDateTime.Date;
-                    startTime = newDateTime.TimeOfDay + duration + TimeSpan.FromMinutes((double)IntervalPicker.Value);
+                    if (!CheckEventOverlapAdd(updatedEvent))
+                    {
+                        selectedEvent.DateTime = newDateTime;
+                        selectedEvent.DateTimeTill = newDateTime + duration;
+
+                        startDate = newDateTime.Date;
+                        startTime = newDateTime.TimeOfDay + duration + TimeSpan.FromMinutes((double)IntervalPicker.Value);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Події накладаються з іншими подіями. Будь ласка, перенесіть події на інші дату або час.",
+                        "Накладання подій", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
                 }
             }
             SaveEventsToJson();
