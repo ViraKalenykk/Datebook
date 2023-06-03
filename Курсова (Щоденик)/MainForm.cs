@@ -173,32 +173,37 @@ namespace Курсова__Щоденик_
             ShowNextEventReminder();
         }
 
-        private bool CheckEventOverlapChange(Event newEvent)
+        private bool CheckEventOverlapChange(Event changedEvent)
         {
             foreach (Event existingEvent in EventList)
             {
-                if (existingEvent == Table.SelectedRows[0].DataBoundItem)
+                // Пропускаємо порівняння зміненої події
+                if (existingEvent == changedEvent)
                     continue;
 
-                if (newEvent.DateTime < existingEvent.DateTimeTill && newEvent.DateTime != existingEvent.DateTimeTill
-                    && newEvent.DateTimeTill > existingEvent.DateTime && newEvent.DateTimeTill != existingEvent.DateTime)
+                // Перевірка на накладання подій
+                if (changedEvent.DateTime < existingEvent.DateTimeTill && changedEvent.DateTimeTill > existingEvent.DateTime &&
+                    (changedEvent.DateTime != existingEvent.DateTimeTill && changedEvent.DateTimeTill != existingEvent.DateTime))
                 {
-                    return true; // Є накладання подій
+                    return true;
                 }
             }
-            return false; // Немає накладання подій
+
+            return false;
         }
 
         private bool CheckEventOverlapAdd(Event newEvent)
         {
             foreach (Event existingEvent in EventList)
             {
-                if (newEvent.DateTime < existingEvent.DateTimeTill && newEvent.DateTime != existingEvent.DateTimeTill
-                    && newEvent.DateTimeTill > existingEvent.DateTime && newEvent.DateTimeTill != existingEvent.DateTime)
+                if ((newEvent.DateTime >= existingEvent.DateTime && newEvent.DateTime < existingEvent.DateTimeTill) ||
+                    (newEvent.DateTimeTill > existingEvent.DateTime && newEvent.DateTimeTill <= existingEvent.DateTimeTill) ||
+                    (newEvent.DateTime <= existingEvent.DateTime && newEvent.DateTimeTill >= existingEvent.DateTimeTill))
                 {
-                    return true; // Є накладання подій
+                    return true; // Подія накладається з іншою подією
                 }
             }
+
             return false; // Немає накладання подій
         }
 
