@@ -26,6 +26,35 @@ namespace Курсова__Щоденик_.Model
         {
             get { return DateTime.Now > DateTimeTill; }
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            Event other = (Event)obj;
+
+            // Порівняти значення полів подій для визначення рівності
+            return Name == other.Name &&
+                   DateTime == other.DateTime &&
+                   DateTimeTill == other.DateTimeTill &&
+                   Place == other.Place;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + (Name != null ? Name.GetHashCode() : 0);
+                hash = hash * 23 + DateTime.GetHashCode();
+                hash = hash * 23 + DateTimeTill.GetHashCode();
+                hash = hash * 23 + (Place != null ? Place.GetHashCode() : 0);
+                return hash;
+            }
+        }
     }
 
 }
