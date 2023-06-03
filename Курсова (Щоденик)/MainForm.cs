@@ -163,7 +163,7 @@ namespace Курсова__Щоденик_
                     formattedTimeRemaining += $"{minutes} {(minutes == 1 ? "хвилина" : "хвилин")}";
                 }
 
-                MessageBox.Show($"Найближча подія: {nextEvent.Name}\nДата та час: {nextEvent.DateTime}\nЗалишилося часу:" +
+                MessageBox.Show($"Найближча подія: {nextEvent.Name}\nДата та час: {nextEvent.DateTime.ToString("dd.MM.yyyy HH:mm")}\nЗалишилося часу:" +
                     $" {formattedTimeRemaining}", "Нагадування");
             }
         }
@@ -510,7 +510,7 @@ namespace Курсова__Щоденик_
                         break;
                     }
                 }
-            }
+            } 
             SaveEventsToJson();
             LoadEventsFromJson();
         }

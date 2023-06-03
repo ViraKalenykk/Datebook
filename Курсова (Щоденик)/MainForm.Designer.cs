@@ -260,7 +260,7 @@
             this.MoveButton.Name = "MoveButton";
             this.MoveButton.Size = new System.Drawing.Size(228, 51);
             this.MoveButton.TabIndex = 21;
-            this.MoveButton.Text = "Перенести події";
+            this.MoveButton.Text = "Перенести";
             this.MoveButton.UseVisualStyleBackColor = false;
             this.MoveButton.Click += new System.EventHandler(this.MoveButton_Click);
             // 
