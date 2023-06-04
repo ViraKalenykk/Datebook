@@ -456,9 +456,17 @@ namespace Курсова__Щоденик_
 			var filteredEvents = EventList
 				.Where(ev => ev.DateTime.Date == selectedDate)
 				.ToList();
-			filteredEvents.Sort((ev1, ev2) => ev1.DateTime.CompareTo(ev2.DateTime));
-			BindingList<Event> sortedEvents = new BindingList<Event>(filteredEvents);
-			Table.DataSource = sortedEvents;
+
+			if (filteredEvents.Count == 0)
+			{
+				MessageBox.Show("Нажаль, за обраною датою подій немає.", "Повідомлення");
+			}
+			else
+			{
+				filteredEvents.Sort((ev1, ev2) => ev1.DateTime.CompareTo(ev2.DateTime));
+				BindingList<Event> sortedEvents = new BindingList<Event>(filteredEvents);
+				Table.DataSource = sortedEvents;
+			}
 		}
 
 		private void BackButton_Click(object sender, EventArgs e)
