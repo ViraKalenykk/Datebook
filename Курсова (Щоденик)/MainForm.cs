@@ -15,6 +15,15 @@ namespace Курсова__Щоденик_
 		private Point DragStartPosition;
 		private DateTime selectedDate;
 
+		private const string DateTimeFormat = "dd/MM/yyyy HH:mm:00";
+		private const string DateFormat = "dd/MM/yyyy";
+		private const string TimeFormat = "HH:mm:00";
+		private const string EventState = "Стан";
+		private const string EventName = "Назва";
+		private const string EventDateTime = "Дата та час";
+		private const string EventDateTimeTill = "Тривалість (до)";
+		private const string EventPlace = "Місце проведення";
+
 		public MainForm()
 		{
 			InitializeComponent();
@@ -22,16 +31,16 @@ namespace Курсова__Щоденик_
 			this.Shown += MainForm_Shown;
 
 			DateTimePicker.Format = DateTimePickerFormat.Custom;
-			DateTimePicker.CustomFormat = "dd/MM/yyyy HH:mm:00";
+			DateTimePicker.CustomFormat = DateTimeFormat;
 			DateTimePicker.ShowUpDown = true;
 			DateTimePickerTill.Format = DateTimePickerFormat.Custom;
-			DateTimePickerTill.CustomFormat = "dd/MM/yyyy HH:mm:00";
+			DateTimePickerTill.CustomFormat = DateTimeFormat;
 			DateTimePickerTill.ShowUpDown = true;
 			DateForMovePicker.Format = DateTimePickerFormat.Custom;
-			DateForMovePicker.CustomFormat = "dd/MM/yyyy";
+			DateForMovePicker.CustomFormat = DateFormat;
 			DateForMovePicker.ShowUpDown = true;
 			TimePicker.Format = DateTimePickerFormat.Custom;
-			TimePicker.CustomFormat = "HH:mm:00";
+			TimePicker.CustomFormat = TimeFormat;
 			TimePicker.ShowUpDown = true;
 
 			Table.DataSource = EventList;
@@ -40,20 +49,18 @@ namespace Курсова__Щоденик_
 			this.MouseMove += MainForm_MouseMove;
 			this.MouseUp += MainForm_MouseUp;
 
-			Table.Columns["isDone"].HeaderText = "Стан";
-			Table.Columns["name"].HeaderText = "Назва";
-			Table.Columns["datetime"].HeaderText = "Дата та час";
-			Table.Columns["datetimetill"].HeaderText = "Тривалість (до)";
-			Table.Columns["place"].HeaderText = "Місце проведення";
+			Table.Columns["isDone"].HeaderText = EventState;
+			Table.Columns["name"].HeaderText = EventName;
+			Table.Columns["datetime"].HeaderText = EventDateTime;
+			Table.Columns["datetimetill"].HeaderText = EventDateTimeTill;
+			Table.Columns["place"].HeaderText = EventPlace;
 			Table.Columns["isExpired"].Visible = false;
 
 			DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
 			checkBoxColumn.DataPropertyName = "isDone";
-			checkBoxColumn.HeaderText = "Стан";
+			checkBoxColumn.HeaderText = EventState;
 			checkBoxColumn.Name = "isDone";
 			checkBoxColumn.ReadOnly = false;
-			Table.Columns.Remove("isDone");
-			Table.Columns.Insert(0, checkBoxColumn);
 			Table.CellContentClick += Table_CellContentClick;
 
 			LoadEventsFromJson();
@@ -125,6 +132,7 @@ namespace Курсова__Щоденик_
 				BindingList<Event> sortedEventList = new BindingList<Event>(sortedEvents);
 				Table.DataSource = sortedEventList;
 			}
+			Table.Columns["isDone"].DataPropertyName = "isDone";
 		}
 
 		private Event? GetNextEvent()
@@ -187,11 +195,9 @@ namespace Курсова__Щоденик_
 		{
 			foreach (Event existingEvent in EventList)
 			{
-				// Пропускаємо порівняння зміненої події
 				if (existingEvent.Equals(changedEvent))
 					continue;
 
-				// Перевірка на накладання подій
 				if (changedEvent.DateTime < existingEvent.DateTimeTill 
 					&& changedEvent.DateTimeTill > existingEvent.DateTime 
 					&& (changedEvent.DateTime != existingEvent.DateTimeTill 
@@ -215,27 +221,25 @@ namespace Курсова__Щоденик_
 					|| (newEvent.DateTime <= existingEvent.DateTime 
 					&& newEvent.DateTimeTill >= existingEvent.DateTimeTill))
 				{
-					return true; // Подія накладається з іншою подією
+					return true;
 				}
 			}
 
-			return false; // Немає накладання подій
+			return false;
 		}
 
 		private void Table_CellContentClick(object? sender, DataGridViewCellEventArgs e)
 		{
-			if (e.ColumnIndex == Table.Columns["isDone"].Index && e.RowIndex >= 0)
+			if (e.RowIndex >= 0 && e.ColumnIndex == 0)
 			{
-				DataGridViewCheckBoxCell checkBoxCell = 
-					(DataGridViewCheckBoxCell)Table.Rows[e.RowIndex].Cells["isDone"];
-				bool currentStatus = (bool)checkBoxCell.Value;
-				checkBoxCell.Value = !currentStatus;
-
-				Event selectedEvent = EventList[e.RowIndex];
-				selectedEvent.IsDone = !currentStatus;
+				DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)Table.Rows[e.RowIndex].Cells["isDone"];
+				Event selectedEvent = (Event)Table.Rows[e.RowIndex].DataBoundItem;
+				checkBoxCell.Value = !(bool)checkBoxCell.Value;
+				selectedEvent.IsDone = (bool)checkBoxCell.Value;
 				SaveEventsToJson();
 			}
 		}
+
 
 		private void AddButton_Click(object sender, EventArgs e)
 		{
@@ -244,7 +248,6 @@ namespace Курсова__Щоденик_
 			DateTime eventDateTimeTill = DateTimePickerTill.Value;
 			string eventPlace = textPlace.Text.Trim();
 
-			// Перевірити, чи всі поля заповнені
 			if (string.IsNullOrEmpty(eventName) || string.IsNullOrEmpty(eventPlace))
 			{
 				MessageBox.Show("Будь ласка, заповніть всі поля.", "Помилка", 
@@ -252,7 +255,6 @@ namespace Курсова__Щоденик_
 				return;
 			}
 
-			// Перевірити коректність дат та часу
 			if (eventDateTime >= eventDateTimeTill)
 			{
 				MessageBox.Show("Дата та час кінця події повинні бути пізніше за дату та час " +
@@ -260,7 +262,6 @@ namespace Курсова__Щоденик_
 				return;
 			}
 
-			// Додати нову подію до списку events
 			Event newEvent = 
 				new Event(false, eventName, eventDateTime, eventDateTimeTill, eventPlace);
 
@@ -280,10 +281,10 @@ namespace Курсова__Щоденик_
 
 					if (result == DialogResult.No)
 					{
-						return; // Відмінити додавання події
+						return;
 					}
 
-					break; // Вийти з циклу, якщо знайдено відповідну подію
+					break;
 				}
 			}
 
@@ -297,13 +298,11 @@ namespace Курсова__Щоденик_
 				EventList.Add(newEvent);
 				Table.Refresh();
 
-				// Очистити поля вводу
 				textName.Text = string.Empty;
 				DateTimePicker.Value = DateTime.Now;
 				DateTimePickerTill.Value = DateTime.Now;
 				textPlace.Text = string.Empty;
 
-				// Зберегти зміни у JSON файл
 				SaveEventsToJson();
 				LoadEventsFromJson();
 			}
@@ -342,10 +341,10 @@ namespace Курсова__Щоденик_
 
 					foreach (Event selectedEvent in eventsToDelete)
 					{
-						EventList.Remove(selectedEvent); // Видаляємо обрану подію зі списку
+						EventList.Remove(selectedEvent);
 					}
 
-					SaveEventsToJson(); // Зберігаємо події у JSON файл
+					SaveEventsToJson();
 					LoadEventsFromJson();
 				}
 			}
@@ -363,7 +362,6 @@ namespace Курсова__Щоденик_
 			{
 				Event? selectedEvent = Table.SelectedRows[0].DataBoundItem as Event;
 
-				// Заповнення полів вводу даними з вибраної строки
 				textName.Text = selectedEvent?.Name;
 				DateTimePicker.Value = selectedEvent?.DateTime ?? DateTime.Now;
 				DateTimePickerTill.Value = selectedEvent?.DateTimeTill ?? DateTime.Now;
@@ -371,7 +369,6 @@ namespace Курсова__Щоденик_
 			}
 			else
 			{
-				// Очистка полів вводу, якщо не вибрано жодної строки
 				textName.Text = string.Empty;
 				DateTimePicker.Value = DateTime.Now;
 				DateTimePickerTill.Value = DateTime.Now;
@@ -388,7 +385,6 @@ namespace Курсова__Щоденик_
 				DateTime eventDateTimeTill = DateTimePickerTill.Value;
 				string eventPlace = textPlace.Text.Trim();
 
-				// Перевірити, чи всі поля заповнені
 				if (string.IsNullOrEmpty(eventName) || string.IsNullOrEmpty(eventPlace))
 				{
 					MessageBox.Show("Будь ласка, заповніть всі поля.", "Помилка", 
@@ -396,7 +392,6 @@ namespace Курсова__Щоденик_
 					return;
 				}
 
-				// Перевірити коректність дат та часу
 				if (eventDateTime >= eventDateTimeTill)
 				{
 					MessageBox.Show("Дата та час кінця події повинні бути пізніше за дату та час " +
@@ -406,7 +401,6 @@ namespace Курсова__Щоденик_
 
 				Event? selectedEvent = Table.SelectedRows[0].DataBoundItem as Event;
 
-				// Перевірити, чи було змінено хоча б одне поле
 				if (selectedEvent?.Name == eventName && 
 					selectedEvent?.DateTime == eventDateTime &&
 					selectedEvent?.DateTimeTill == eventDateTimeTill && 
@@ -437,7 +431,6 @@ namespace Курсова__Щоденик_
 							MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 						if (result == DialogResult.Yes)
 						{
-							// Очистити поля вводу
 							textName.Text = string.Empty;
 							DateTimePicker.Value = DateTime.Now;
 							DateTimePickerTill.Value = DateTime.Now;
@@ -492,6 +485,14 @@ namespace Курсова__Щоденик_
 			}
 		}
 
+		private bool ConfirmEventMove()
+		{
+			DialogResult result = MessageBox.Show("Ви впевнені, що хочете перенести?",
+				"Підтвердження перенесення події", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+			return result == DialogResult.Yes;
+		}
+
 		private void MoveButton_Click(object sender, EventArgs e)
 		{
 			if (Table.SelectedRows.Count == 1)
@@ -519,13 +520,20 @@ namespace Курсова__Щоденик_
 
 							if (!CheckEventOverlapChange(updatedEvent))
 							{
-								selectedEvent.DateTime = newDateTime;
-								selectedEvent.DateTimeTill = newDateTime + duration.Value;
+								if (ConfirmEventMove())
+								{
+									selectedEvent.DateTime = newDateTime;
+									selectedEvent.DateTimeTill = newDateTime + duration.Value;
+								}
+								else
+								{
+									return;
+								}
 							}
 							else
 							{
 								MessageBox.Show("Подія накладається з іншою подією. Будь ласка, " +
-									"перенесіть подію на іншу дату або час.", "Накладання подій", 
+									"перенесіть подію на іншу дату або час.", "Накладання подій",
 									MessageBoxButtons.OK, MessageBoxIcon.Error);
 								return;
 							}
@@ -538,36 +546,45 @@ namespace Курсова__Щоденик_
 				DateTime startDate = DateForMovePicker.Value.Date;
 				TimeSpan startTime = TimePicker.Value.TimeOfDay;
 
-				foreach (DataGridViewRow row in Table.SelectedRows)
+				List<DataGridViewRow> rows =
+					(from DataGridViewRow row in Table.SelectedRows
+					where !row.IsNewRow
+					orderby row.Index
+					select row).ToList<DataGridViewRow>();
+
+				if (ConfirmEventMove())
 				{
-					Event? selectedEvent = row.DataBoundItem as Event;
-
-					DateTime newDateTime = startDate + startTime;
-					TimeSpan? duration = selectedEvent?.DateTimeTill - selectedEvent?.DateTime;
-
-					if (duration != null)
+					foreach (DataGridViewRow row in rows)
 					{
-						if (selectedEvent != null && selectedEvent.Name != null 
-							&& selectedEvent.Place != null)
+						Event? selectedEvent = row.DataBoundItem as Event;
+
+						DateTime newDateTime = startDate + startTime;
+						TimeSpan? duration = selectedEvent?.DateTimeTill - selectedEvent?.DateTime;
+
+						if (duration != null)
 						{
-							Event updatedEvent = new Event(false, selectedEvent.Name, newDateTime, 
-								newDateTime + duration.Value, selectedEvent.Place);
-
-							if (!CheckEventOverlapChange(updatedEvent))
+							if (selectedEvent != null && selectedEvent.Name != null
+								&& selectedEvent.Place != null)
 							{
-								selectedEvent.DateTime = newDateTime;
-								selectedEvent.DateTimeTill = newDateTime + duration.Value;
+								Event updatedEvent = new Event(false, selectedEvent.Name, newDateTime,
+									newDateTime + duration.Value, selectedEvent.Place);
 
-								startDate = newDateTime.Date;
-								startTime = newDateTime.TimeOfDay + duration.Value + 
-									TimeSpan.FromMinutes((double)IntervalPicker.Value);
-							}
-							else
-							{
-								MessageBox.Show("Події накладаються з іншими подіями. " +
-									"Будь ласка, перенесіть події на іншу дату або час.", 
-									"Накладання подій", MessageBoxButtons.OK, MessageBoxIcon.Error);
-								break;
+								if (!CheckEventOverlapChange(updatedEvent))
+								{
+									selectedEvent.DateTime = newDateTime;
+									selectedEvent.DateTimeTill = newDateTime + duration.Value;
+
+									startDate = newDateTime.Date;
+									startTime = newDateTime.TimeOfDay + duration.Value +
+										TimeSpan.FromMinutes((double)IntervalPicker.Value);
+								}
+								else
+								{
+									MessageBox.Show("Події накладаються з іншими подіями. " +
+										"Будь ласка, перенесіть події на іншу дату або час.",
+										"Накладання подій", MessageBoxButtons.OK, MessageBoxIcon.Error);
+									break;
+								}
 							}
 						}
 					}
