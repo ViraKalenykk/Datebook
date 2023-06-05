@@ -36,7 +36,6 @@ namespace Курсова__Щоденик_.Model
 
             Event other = (Event)obj;
 
-            // Порівняти значення полів подій для визначення рівності
             return Name == other.Name &&
                    DateTime == other.DateTime &&
                    DateTimeTill == other.DateTimeTill &&
