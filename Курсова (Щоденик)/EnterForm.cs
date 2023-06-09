@@ -94,7 +94,7 @@ namespace Курсова__Щоденик_
 
 		public void LoadCustomersData()
 		{
-			string jsonFilePath = "C:/Users/Asus/Downloads/Курсова/Курсова (Щоденик)/Курсова (Щоденик)/Documents/customer.json";
+			string jsonFilePath = "Documents/customer.json";
 
 			if (File.Exists(jsonFilePath))
 			{

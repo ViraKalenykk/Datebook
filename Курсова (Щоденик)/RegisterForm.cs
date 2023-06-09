@@ -108,7 +108,7 @@ namespace Курсова__Щоденик_
 
 		public void LoadCustomersData()
 		{
-			string jsonFilePath = "C:/Users/Asus/Downloads/Курсова/Курсова (Щоденик)/Курсова (Щоденик)/Documents/customer.json";
+			string jsonFilePath = "Documents/customer.json";
 
 			if (File.Exists(jsonFilePath))
 			{
@@ -123,7 +123,7 @@ namespace Курсова__Щоденик_
 
 		private void SaveCustomersData()
 		{
-			string jsonFilePath = "C:/Users/Asus/Downloads/Курсова/Курсова (Щоденик)/Курсова (Щоденик)/Documents/customer.json";
+			string jsonFilePath = "Documents/customer.json";
 			string jsonData = JsonConvert.SerializeObject(CustomerList);
 			File.WriteAllText(jsonFilePath, jsonData);
 		}

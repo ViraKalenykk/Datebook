@@ -13,12 +13,11 @@ namespace Курсова__Щоденик_
 		private bool IsDragging = false;
 		private Point DragStartPosition;
 		private DateTime selectedDate;
-		private List<Customer> customers;
 		private Customer? currentCustomer;
 		private BindingList<Event> EventList = new BindingList<Event>();
 		private BindingList<Event>? sortedEvents;
 
-		private const string jsonFilePath = "C:/Users/Asus/Downloads/Курсова/Курсова (Щоденик)/Курсова (Щоденик)/Documents/customer.json";
+		private const string jsonFilePath = "Documents/customer.json";
 		private const string DateTimeFormat = "dd/MM/yyyy HH:mm";
 		private const string DateFormat = "dd/MM/yyyy";
 		private const string TimeFormat = "HH:mm";
@@ -34,7 +33,6 @@ namespace Курсова__Щоденик_
 
 			this.Shown += MainForm_Shown;
 			this.Click += MainForm_Click;
-			this.customers = customers;
 
 			DateTimePicker.Format = DateTimePickerFormat.Custom;
 			DateTimePicker.CustomFormat = DateTimeFormat;
@@ -91,48 +89,10 @@ namespace Курсова__Щоденик_
 			Table.DataSource = EventList;
 		}
 
-		private DateTime roundToMinute(DateTime dateTime)
+		private DateTime RoundToMinute(DateTime dateTime)
 		{
 			return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute, 0);
 		}
-
-		private void btnClose_Click(object sender, EventArgs e)
-		{
-			Application.Exit();
-		}
-
-		private void MainForm_MouseDown(object? sender, MouseEventArgs e)
-		{
-			if (e.Button == MouseButtons.Left)
-			{
-				IsDragging = true;
-				DragStartPosition = e.Location;
-			}
-		}
-
-		private void MainForm_MouseMove(object? sender, MouseEventArgs e)
-		{
-			if (IsDragging)
-			{
-				Point diff = Point.Subtract(e.Location, new Size(DragStartPosition));
-				this.Location = Point.Add(this.Location, new Size(diff));
-			}
-		}
-
-		private void MainForm_MouseUp(object? sender, MouseEventArgs e)
-		{
-			IsDragging = false;
-		}
-
-		private void MainForm_Click(object? sender, EventArgs e)
-		{
-			textName.Text = string.Empty;
-			DateTimePicker.Value = DateTime.Now;
-			DateTimePickerTill.Value = DateTime.Now;
-			textPlace.Text = string.Empty;
-			Table.ClearSelection();
-		}
-
 
 		private void SaveEventsToJson()
 		{
@@ -184,7 +144,7 @@ namespace Курсова__Щоденик_
 
 			foreach (Event ev in EventList)
 			{
-				if (ev.DateTime >= currentTime && (nextEvent == null || 
+				if (ev.DateTime >= currentTime && (nextEvent == null ||
 					ev.DateTime < nextEvent.DateTime))
 				{
 					nextEvent = ev;
@@ -201,7 +161,7 @@ namespace Курсова__Щоденик_
 			{
 				TimeSpan timeRemaining = nextEvent.DateTime - DateTime.Now;
 
-				timeRemaining = new TimeSpan((long)Math.Round((double)timeRemaining.Ticks, 
+				timeRemaining = new TimeSpan((long)Math.Round((double)timeRemaining.Ticks,
 					MidpointRounding.AwayFromZero));
 
 				int days = timeRemaining.Days;
@@ -222,40 +182,15 @@ namespace Курсова__Щоденик_
 					formattedTimeRemaining += $"{minutes} {(minutes == 1 ? "хвилина" : "хвилин")}";
 				}
 
-				MessageBox.Show($"Найближча подія: {nextEvent.Name}\nДата та час: " +
-					$"{nextEvent.DateTime.ToString("dd.MM.yyyy HH:mm")}\nЗалишилося часу:" 
+				MessageBox.Show($"Найближча справа: {nextEvent.Name}\nДата та час: " +
+					$"{nextEvent.DateTime.ToString("dd.MM.yyyy HH:mm")}\nЗалишилося часу:"
 					+ $" {formattedTimeRemaining}", "Нагадування");
 			}
 			else
 			{
-				MessageBox.Show("Немає жодної справи. Додайте першу справу)", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Немає жодної справи. Додайте першу справу)",
+					"Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
-		}
-
-		private void MainForm_Shown(object? sender, EventArgs e)
-		{
-			ShowNextEventReminder();
-		}
-
-		private bool CheckEventOverlapChange(Event changedEvent)
-		{
-			if (currentCustomer!.Events != null)
-			{
-				foreach (Event existingEvent in currentCustomer.Events)
-				{
-					if (existingEvent.Equals(changedEvent))
-						continue;
-
-					if (changedEvent.DateTime < existingEvent.DateTimeTill
-						&& changedEvent.DateTimeTill > existingEvent.DateTime
-						&& (changedEvent.DateTime != existingEvent.DateTimeTill
-						&& changedEvent.DateTimeTill != existingEvent.DateTime))
-					{
-						return true;
-					}
-				}
-			}
-			return false;		
 		}
 
 		private bool CheckEventOverlapAdd(Event newEvent)
@@ -276,6 +211,27 @@ namespace Курсова__Щоденик_
 			return false;
 		}
 
+		private bool CheckEventOverlapChange(Event changedEvent)
+		{
+			if (currentCustomer!.Events != null)
+			{
+				foreach (Event existingEvent in currentCustomer.Events)
+				{
+					if (existingEvent.Equals(changedEvent))
+						continue;
+
+					if (changedEvent.DateTime < existingEvent.DateTimeTill
+						&& changedEvent.DateTimeTill > existingEvent.DateTime
+						&& (changedEvent.DateTime != existingEvent.DateTimeTill
+						&& changedEvent.DateTimeTill != existingEvent.DateTime))
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
 		private void Table_CellContentClick(object? sender, DataGridViewCellEventArgs e)
 		{
 			if (e.RowIndex >= 0 && e.ColumnIndex == 0)
@@ -291,14 +247,56 @@ namespace Курсова__Щоденик_
 			}
 		}
 
+		private void btnClose_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+
+		private void MainForm_MouseDown(object? sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Left)
+			{
+				IsDragging = true;
+				DragStartPosition = e.Location;
+			}
+		}
+
+		private void MainForm_MouseMove(object? sender, MouseEventArgs e)
+		{
+			if (IsDragging)
+			{
+				Point diff = Point.Subtract(e.Location, new Size(DragStartPosition));
+				this.Location = Point.Add(this.Location, new Size(diff));
+			}
+		}
+
+		private void MainForm_MouseUp(object? sender, MouseEventArgs e)
+		{
+			IsDragging = false;
+		}
+
+		private void MainForm_Click(object? sender, EventArgs e)
+		{
+			textName.Text = string.Empty;
+			DateTimePicker.Value = DateTime.Now;
+			DateTimePickerTill.Value = DateTime.Now;
+			textPlace.Text = string.Empty;
+			Table.ClearSelection();
+		}
+
+		private void MainForm_Shown(object? sender, EventArgs e)
+		{
+			ShowNextEventReminder();
+		}
+
 		private void AddButton_Click(object sender, EventArgs e)
 		{
 			string eventName = textName.Text.Trim();
 			DateTime eventDateTime = DateTimePicker.Value;
 			DateTime eventDateTimeTill = DateTimePickerTill.Value;
 			string eventPlace = textPlace.Text.Trim();
-			eventDateTime = roundToMinute(eventDateTime);
-			eventDateTimeTill = roundToMinute(eventDateTimeTill);
+			eventDateTime = RoundToMinute(eventDateTime);
+			eventDateTimeTill = RoundToMinute(eventDateTimeTill);
 
 			if (string.IsNullOrEmpty(eventName) || string.IsNullOrEmpty(eventPlace))
 			{
@@ -336,7 +334,7 @@ namespace Курсова__Щоденик_
 					&& existingEvent.DateTime != eventDateTime)
 				{
 					string message = string.Format("Справа '{0}' та місцем проведення '{1}'  " +
-						"уже існує на " + $"{existingEvent.DateTime.ToString("dd.MM.yyyy HH:mm")}. " +
+						"вже існує на " + $"{existingEvent.DateTime.ToString("dd.MM.yyyy HH:mm")}. " +
 						"Ви впевнені, що хочете додати нову справу?", eventName, eventPlace, 
 						existingEvent.DateTime);
 
@@ -354,7 +352,7 @@ namespace Курсова__Щоденик_
 
 			if (CheckEventOverlapAdd(newEvent))
 			{
-				MessageBox.Show("Справа накладається з іншою подією. Будь ласка, перенесіть " +
+				MessageBox.Show("Справа накладається з іншою справою. Будь ласка, перенесіть " +
 					"справу.", "Накладання подій", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			else
@@ -370,7 +368,6 @@ namespace Курсова__Щоденик_
 				Table.DataSource = currentCustomer!.Events;
 				LoadEventsFromJson();
 				UpdateEventList();
-				SetupTableStyle();
 			}
 		}
 
@@ -411,11 +408,9 @@ namespace Курсова__Щоденик_
 
 					SaveEventsToJson();
 
-					Table.DataSource = null;
-					Table.DataSource = currentCustomer!.Events;
 					LoadEventsFromJson();
 					UpdateEventList();
-					SetupTableStyle();
+					//SetupTableStyle();
 
 					string successMessage = (eventsToDelete.Count == 1) ? "Справу успішно видалено." : "Справи успішно видалено.";
 					MessageBox.Show(successMessage, "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -438,8 +433,8 @@ namespace Курсова__Щоденик_
 				textName.Text = selectedEvent?.Name;
 				DateTimePicker.Value = selectedEvent?.DateTime ?? DateTime.Now;
 				DateTimePickerTill.Value = selectedEvent?.DateTimeTill ?? DateTime.Now;
-				DateTimePicker.Value = roundToMinute(DateTimePicker.Value);
-				DateTimePickerTill.Value = roundToMinute(DateTimePickerTill.Value);
+				DateTimePicker.Value = RoundToMinute(DateTimePicker.Value);
+				DateTimePickerTill.Value = RoundToMinute(DateTimePickerTill.Value);
 				textPlace.Text = selectedEvent?.Place;
 			}
 			else
@@ -481,7 +476,7 @@ namespace Курсова__Щоденик_
 
 				if (eventDateTime >= eventDateTimeTill)
 				{
-					MessageBox.Show("Дата та час кінця події повинні бути пізніше за дату та час " +
+					MessageBox.Show("Дата та час кінця справи повинні бути пізніше за дату та час " +
 						"початку.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
@@ -493,7 +488,7 @@ namespace Курсова__Щоденик_
 					selectedEvent.DateTimeTill == eventDateTimeTill &&
 					selectedEvent.Place == eventPlace)
 				{
-					MessageBox.Show("Немає змін для цієї події.", "Інформація",
+					MessageBox.Show("Немає змін для цієї справи.", "Інформація",
 						MessageBoxButtons.OK, MessageBoxIcon.Information);
 					return;
 				}
@@ -505,14 +500,14 @@ namespace Курсова__Щоденик_
 
 				if (CheckEventOverlapChange(selectedEvent))
 				{
-					MessageBox.Show("Подія накладається з іншою подією. " +
-						"Будь ласка, перенесіть подію.", "Накладання подій",
+					MessageBox.Show("Справа накладається з іншою справою. " +
+						"Будь ласка, перенесіть справу.", "Накладання подій",
 						MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 				else
 				{
 					DialogResult result = MessageBox.Show("Ви впевнені, " +
-						"що хочете змінити цю подію?", "Підтвердження змін",
+						"що хочете змінити цю справу?", "Підтвердження змін",
 						MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 					if (result == DialogResult.Yes)
 					{
@@ -523,19 +518,16 @@ namespace Курсова__Щоденик_
 
 						SaveEventsToJson();
 
-						Table.DataSource = null;
-						Table.DataSource = currentCustomer!.Events;
 						LoadEventsFromJson();
 						UpdateEventList();
-						SetupTableStyle();
 
-						MessageBox.Show("Подію успішно змінено", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						MessageBox.Show("Справу успішно змінено", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					}
 				}
 			}
 			else
 			{
-				MessageBox.Show("Для зміни необхідно обрати подію, яку Ви хочете змінити.",
+				MessageBox.Show("Для зміни необхідно обрати справу, яку Ви хочете змінити.",
 					"Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
 			}
@@ -589,7 +581,7 @@ namespace Курсова__Щоденик_
 		private bool ConfirmEventMove()
 		{
 			DialogResult result = MessageBox.Show("Ви впевнені, що хочете перенести?",
-				"Підтвердження перенесення події", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				"Підтвердження перенесення справи", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 			return result == DialogResult.Yes;
 		}
@@ -598,7 +590,7 @@ namespace Курсова__Щоденик_
 		{
 			if (Table.SelectedRows.Count == 0)
 			{
-				MessageBox.Show("Для перенесення необхідно обрати події, які Ви хочете перенести.",
+				MessageBox.Show("Для перенесення необхідно обрати справи, які Ви хочете перенести.",
 					"Помилка", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
 			}
@@ -614,7 +606,7 @@ namespace Курсова__Щоденик_
 
 					DateTime newDateTime = newDate + newTime;
 					TimeSpan duration = selectedEvent.DateTimeTill - selectedEvent.DateTime;
-					newDateTime = roundToMinute(newDateTime);
+					newDateTime = RoundToMinute(newDateTime);
 
 					if (newDateTime < DateTime.Now)
 					{
