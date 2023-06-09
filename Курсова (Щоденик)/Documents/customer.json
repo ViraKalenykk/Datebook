@@ -1,1 +1,494 @@
-[{"Name":"Віра","Password":"123456","Events":[{"IsDone":false,"Name":"Спорт","DateTime":"2023-06-10T08:00:00","DateTimeTill":"2023-06-10T09:00:00","Place":"Спортзал","IsExpired":false},{"IsDone":false,"Name":"Прибрати квартиру","DateTime":"2023-06-10T12:00:00","DateTimeTill":"2023-06-10T14:00:00","Place":"Вдома","IsExpired":false},{"IsDone":false,"Name":"Зустріч з друзями","DateTime":"2023-06-10T19:00:00","DateTimeTill":"2023-06-10T23:00:00","Place":"Кафе","IsExpired":false},{"IsDone":false,"Name":"Заняття англійською","DateTime":"2023-06-11T10:00:00","DateTimeTill":"2023-06-11T11:00:00","Place":"Онлайн","IsExpired":false},{"IsDone":false,"Name":"Прогулянка в парку","DateTime":"2023-06-11T16:00:00","DateTimeTill":"2023-06-11T17:30:00","Place":"Парк","IsExpired":false},{"IsDone":false,"Name":"Читання книги","DateTime":"2023-06-12T09:00:00","DateTimeTill":"2023-06-12T10:30:00","Place":"Домашні умови","IsExpired":false},{"IsDone":false,"Name":"Готування обіду","DateTime":"2023-06-12T12:00:00","DateTimeTill":"2023-06-12T13:00:00","Place":"Кухня","IsExpired":false},{"IsDone":false,"Name":"Відвідування кіно","DateTime":"2023-06-12T18:30:00","DateTimeTill":"2023-06-12T21:00:00","Place":"Кінотеатр","IsExpired":false},{"IsDone":false,"Name":"Тренування на велотренажері","DateTime":"2023-06-13T07:00:00","DateTimeTill":"2023-06-13T08:00:00","Place":"Вдома","IsExpired":false},{"IsDone":false,"Name":"Підготовка до презентації","DateTime":"2023-06-13T10:00:00","DateTimeTill":"2023-06-13T12:00:00","Place":"Вдома","IsExpired":false},{"IsDone":false,"Name":"Відправка електронних листів","DateTime":"2023-06-13T15:00:00","DateTimeTill":"2023-06-13T16:00:00","Place":"Офіс","IsExpired":false},{"IsDone":false,"Name":"Розв'язання хрестоматійних задач","DateTime":"2023-06-14T09:00:00","DateTimeTill":"2023-06-14T11:00:00","Place":"Вдома","IsExpired":false},{"IsDone":false,"Name":"Ланч на свіжому повітрі","DateTime":"2023-06-14T13:00:00","DateTimeTill":"2023-06-14T14:00:00","Place":"Парк","IsExpired":false},{"IsDone":false,"Name":"Відвідування лекції","DateTime":"2023-06-14T17:00:00","DateTimeTill":"2023-06-14T19:00:00","Place":"Онлайн","IsExpired":false},{"IsDone":false,"Name":"Спілкування з рідними","DateTime":"2023-06-14T20:00:00","DateTimeTill":"2023-06-14T22:00:00","Place":"Вдома","IsExpired":false},{"IsDone":false,"Name":"Тренування йоги","DateTime":"2023-06-15T08:30:00","DateTimeTill":"2023-06-15T09:30:00","Place":"Студія йоги","IsExpired":false},{"IsDone":false,"Name":"Засідання робочої групи","DateTime":"2023-06-15T10:30:00","DateTimeTill":"2023-06-15T12:00:00","Place":"Онлайн","IsExpired":false},{"IsDone":false,"Name":"Відвідування виставки","DateTime":"2023-06-16T11:00:00","DateTimeTill":"2023-06-16T13:00:00","Place":"Художній центр","IsExpired":false},{"IsDone":false,"Name":"Зустріч зі старими друзями","DateTime":"2023-06-16T19:00:00","DateTimeTill":"2023-06-16T22:00:00","Place":"Ресторан","IsExpired":false},{"IsDone":false,"Name":"Розваги з домашніми улюбленцями","DateTime":"2023-06-17T10:00:00","DateTimeTill":"2023-06-17T11:30:00","Place":"Парк","IsExpired":false},{"IsDone":false,"Name":"Екскурсія до музею","DateTime":"2023-06-17T14:00:00","DateTimeTill":"2023-06-17T16:00:00","Place":"Музей","IsExpired":false},{"IsDone":false,"Name":"Вечірнє читання","DateTime":"2023-06-17T20:00:00","DateTimeTill":"2023-06-17T21:30:00","Place":"Вдома","IsExpired":false},{"IsDone":false,"Name":"Тренування на велосипеді","DateTime":"2023-06-18T09:30:00","DateTimeTill":"2023-06-18T11:00:00","Place":"Парк","IsExpired":false},{"IsDone":false,"Name":"Подорож до сусіднього міста","DateTime":"2023-06-18T13:00:00","DateTimeTill":"2023-06-18T18:00:00","Place":"Місто","IsExpired":false},{"IsDone":false,"Name":"Вечірнє кіно","DateTime":"2023-06-18T20:30:00","DateTimeTill":"2023-06-18T22:30:00","Place":"Кінотеатр","IsExpired":false},{"IsDone":false,"Name":"Ранкова пробіжка","DateTime":"2023-06-19T07:00:00","DateTimeTill":"2023-06-19T08:00:00","Place":"Парк","IsExpired":false},{"IsDone":false,"Name":"Зустріч з ментором","DateTime":"2023-06-19T11:00:00","DateTimeTill":"2023-06-19T12:30:00","Place":"Кав'ярня","IsExpired":false},{"IsDone":false,"Name":"Пікнік на природі","DateTime":"2023-06-19T14:00:00","DateTimeTill":"2023-06-19T17:00:00","Place":"Парк","IsExpired":false},{"IsDone":false,"Name":"Покупки","DateTime":"2023-06-13T18:45:00","DateTimeTill":"2023-06-13T20:15:00","Place":"Супермаркет","IsExpired":false}]},{"Name":"Роман","Password":"654321","Events":[{"IsDone":false,"Name":"Відвідати футбольний тренування","DateTime":"2023-06-10T16:00:00","DateTimeTill":"2023-06-10T18:00:00","Place":"Спортивний майданчик","IsExpired":false},{"IsDone":false,"Name":"Заняття настільним тенісом","DateTime":"2023-06-11T14:00:00","DateTimeTill":"2023-06-11T15:30:00","Place":"Спортзал","IsExpired":false},{"IsDone":false,"Name":"Відвідати майстер-клас з малювання","DateTime":"2023-06-12T10:00:00","DateTimeTill":"2023-06-12T12:00:00","Place":"Художня школа","IsExpired":false},{"IsDone":false,"Name":"Грати в комп'ютерну гру з друзями","DateTime":"2023-06-12T15:00:00","DateTimeTill":"2023-06-12T17:00:00","Place":"Домашні умови","IsExpired":false},{"IsDone":false,"Name":"Провести експерименти з науки","DateTime":"2023-06-13T14:00:00","DateTimeTill":"2023-06-13T16:00:00","Place":"Домашні умови","IsExpired":false},{"IsDone":false,"Name":"Піти на каток","DateTime":"2023-06-14T18:00:00","DateTimeTill":"2023-06-14T20:00:00","Place":"Льодова арена","IsExpired":false},{"IsDone":false,"Name":"Подивитися фільм про науку чи космос","DateTime":"2023-06-15T20:00:00","DateTimeTill":"2023-06-15T22:00:00","Place":"Домашні умови","IsExpired":false},{"IsDone":false,"Name":"Відвідати карате тренування","DateTime":"2023-06-16T17:00:00","DateTimeTill":"2023-06-16T19:00:00","Place":"Спортзал","IsExpired":false},{"IsDone":false,"Name":"Піти на концерт улюбленого виконавця","DateTime":"2023-06-17T19:30:00","DateTimeTill":"2023-06-17T22:30:00","Place":"Концертний зал","IsExpired":false},{"IsDone":false,"Name":"Спробувати грати на новому музичному інструменті","DateTime":"2023-06-18T11:00:00","DateTimeTill":"2023-06-18T12:30:00","Place":"Музична школа","IsExpired":false},{"IsDone":false,"Name":"Відвідати виставку машин і технологій","DateTime":"2023-06-18T15:00:00","DateTimeTill":"2023-06-18T17:00:00","Place":"Виставковий центр","IsExpired":false},{"IsDone":false,"Name":"Зайнятися велоспортом","DateTime":"2023-06-19T09:00:00","DateTimeTill":"2023-06-19T11:00:00","Place":"Велосипедний маршрут","IsExpired":false},{"IsDone":false,"Name":"Відвідати наукову лекцію","DateTime":"2023-06-20T18:00:00","DateTimeTill":"2023-06-20T19:30:00","Place":"Університет","IsExpired":false},{"IsDone":false,"Name":"Зіграти в баскетбол з друзями","DateTime":"2023-06-21T16:00:00","DateTimeTill":"2023-06-21T18:00:00","Place":"Спортивний майданчик","IsExpired":false},{"IsDone":false,"Name":"Заняття музикою: грати на гітарі або ударних інструментах","DateTime":"2023-06-22T14:00:00","DateTimeTill":"2023-06-22T16:00:00","Place":"Музична студія","IsExpired":false},{"IsDone":false,"Name":"Відвідати кімнату квесту","DateTime":"2023-06-23T13:00:00","DateTimeTill":"2023-06-23T15:00:00","Place":"Квест-кімната","IsExpired":false},{"IsDone":false,"Name":"Подорожувати на велосипеді по місту","DateTime":"2023-06-24T10:00:00","DateTimeTill":"2023-06-24T12:00:00","Place":"Місто","IsExpired":false},{"IsDone":false,"Name":"Провести ігрову вечірку з друзями","DateTime":"2023-06-25T18:00:00","DateTimeTill":"2023-06-25T22:00:00","Place":"Домашні умови","IsExpired":false},{"IsDone":false,"Name":"Поїхати на водний парк","DateTime":"2023-06-26T12:00:00","DateTimeTill":"2023-06-26T17:00:00","Place":"Водний парк","IsExpired":false},{"IsDone":false,"Name":"Відвідати ролердром","DateTime":"2023-06-27T16:00:00","DateTimeTill":"2023-06-27T18:00:00","Place":"Ролердром","IsExpired":false},{"IsDone":false,"Name":"Зайнятися фотографією","DateTime":"2023-06-28T15:00:00","DateTimeTill":"2023-06-28T17:00:00","Place":"Фотостудія","IsExpired":false},{"IsDone":false,"Name":"Зануритися у світ віртуальної реальності","DateTime":"2023-06-29T19:00:00","DateTimeTill":"2023-06-29T21:00:00","Place":"Віртуальна реальність кафе","IsExpired":false},{"IsDone":false,"Name":"Грати у стратегічну настільну гру","DateTime":"2023-06-30T17:00:00","DateTimeTill":"2023-06-30T20:00:00","Place":"Домашні умови","IsExpired":false}]},{"Name":"Катерина","Password":"135790","Events":[]},{"Name":"Юлія","Password":"919191","Events":[]},{"Name":"Ян","Password":"3434345","Events":[]},{"Name":"абдул","Password":"2060552","Events":[{"IsDone":false,"Name":"спорт залл","DateTime":"2023-06-10T23:25:00","DateTimeTill":"2023-06-11T04:24:00","Place":"спортивни зал","IsExpired":false},{"IsDone":false,"Name":"пртпрт","DateTime":"2023-06-23T23:39:00","DateTimeTill":"2023-06-23T23:56:00","Place":"пртпт","IsExpired":false},{"IsDone":false,"Name":"4а5аа","DateTime":"2023-06-27T23:39:00","DateTimeTill":"2023-06-28T00:39:00","Place":"куук","IsExpired":false}]},{"Name":"Христина","Password":"147901","Events":[{"IsDone":false,"Name":"///","DateTime":"2023-06-10T10:32:00","DateTimeTill":"2023-06-10T11:32:00","Place":"///","IsExpired":false}]},{"Name":"Олександ","Password":"345678","Events":[]}]
+[
+  {
+    "Name": "Віра",
+    "Password": "123456",
+    "Events": [
+      {
+        "IsDone": false,
+        "Name": "Спорт",
+        "DateTime": "2023-06-10T08:00:00",
+        "DateTimeTill": "2023-06-10T09:00:00",
+        "Place": "Спортзал",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Прибрати квартиру",
+        "DateTime": "2023-06-10T12:00:00",
+        "DateTimeTill": "2023-06-10T14:00:00",
+        "Place": "Вдома",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Зустріч з друзями",
+        "DateTime": "2023-06-10T19:00:00",
+        "DateTimeTill": "2023-06-10T23:00:00",
+        "Place": "Кафе",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Заняття англійською",
+        "DateTime": "2023-06-11T10:00:00",
+        "DateTimeTill": "2023-06-11T11:00:00",
+        "Place": "Онлайн",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Прогулянка в парку",
+        "DateTime": "2023-06-11T16:00:00",
+        "DateTimeTill": "2023-06-11T17:30:00",
+        "Place": "Парк",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Читання книги",
+        "DateTime": "2023-06-12T09:00:00",
+        "DateTimeTill": "2023-06-12T10:30:00",
+        "Place": "Домашні умови",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Готування обіду",
+        "DateTime": "2023-06-12T12:00:00",
+        "DateTimeTill": "2023-06-12T13:00:00",
+        "Place": "Кухня",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Відвідування кіно",
+        "DateTime": "2023-06-12T18:30:00",
+        "DateTimeTill": "2023-06-12T21:00:00",
+        "Place": "Кінотеатр",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Тренування на велотренажері",
+        "DateTime": "2023-06-13T07:00:00",
+        "DateTimeTill": "2023-06-13T08:00:00",
+        "Place": "Вдома",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Підготовка до презентації",
+        "DateTime": "2023-06-13T10:00:00",
+        "DateTimeTill": "2023-06-13T12:00:00",
+        "Place": "Вдома",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Відправка електронних листів",
+        "DateTime": "2023-06-13T15:00:00",
+        "DateTimeTill": "2023-06-13T16:00:00",
+        "Place": "Офіс",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Розв'язання хрестоматійних задач",
+        "DateTime": "2023-06-14T09:00:00",
+        "DateTimeTill": "2023-06-14T11:00:00",
+        "Place": "Вдома",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Ланч на свіжому повітрі",
+        "DateTime": "2023-06-14T13:00:00",
+        "DateTimeTill": "2023-06-14T14:00:00",
+        "Place": "Парк",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Відвідування лекції",
+        "DateTime": "2023-06-14T17:00:00",
+        "DateTimeTill": "2023-06-14T19:00:00",
+        "Place": "Онлайн",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Спілкування з рідними",
+        "DateTime": "2023-06-14T20:00:00",
+        "DateTimeTill": "2023-06-14T22:00:00",
+        "Place": "Вдома",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Тренування йоги",
+        "DateTime": "2023-06-15T08:30:00",
+        "DateTimeTill": "2023-06-15T09:30:00",
+        "Place": "Студія йоги",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Засідання робочої групи",
+        "DateTime": "2023-06-15T10:30:00",
+        "DateTimeTill": "2023-06-15T12:00:00",
+        "Place": "Онлайн",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Відвідування виставки",
+        "DateTime": "2023-06-16T11:00:00",
+        "DateTimeTill": "2023-06-16T13:00:00",
+        "Place": "Художній центр",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Зустріч зі старими друзями",
+        "DateTime": "2023-06-16T19:00:00",
+        "DateTimeTill": "2023-06-16T22:00:00",
+        "Place": "Ресторан",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Розваги з домашніми улюбленцями",
+        "DateTime": "2023-06-17T10:00:00",
+        "DateTimeTill": "2023-06-17T11:30:00",
+        "Place": "Парк",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Екскурсія до музею",
+        "DateTime": "2023-06-17T14:00:00",
+        "DateTimeTill": "2023-06-17T16:00:00",
+        "Place": "Музей",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Вечірнє читання",
+        "DateTime": "2023-06-17T20:00:00",
+        "DateTimeTill": "2023-06-17T21:30:00",
+        "Place": "Вдома",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Тренування на велосипеді",
+        "DateTime": "2023-06-18T09:30:00",
+        "DateTimeTill": "2023-06-18T11:00:00",
+        "Place": "Парк",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Подорож до сусіднього міста",
+        "DateTime": "2023-06-18T13:00:00",
+        "DateTimeTill": "2023-06-18T18:00:00",
+        "Place": "Місто",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Вечірнє кіно",
+        "DateTime": "2023-06-18T20:30:00",
+        "DateTimeTill": "2023-06-18T22:30:00",
+        "Place": "Кінотеатр",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Ранкова пробіжка",
+        "DateTime": "2023-06-19T07:00:00",
+        "DateTimeTill": "2023-06-19T08:00:00",
+        "Place": "Парк",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Зустріч з ментором",
+        "DateTime": "2023-06-19T11:00:00",
+        "DateTimeTill": "2023-06-19T12:30:00",
+        "Place": "Кав'ярня",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Пікнік на природі",
+        "DateTime": "2023-06-19T14:00:00",
+        "DateTimeTill": "2023-06-19T17:00:00",
+        "Place": "Парк",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Покупки",
+        "DateTime": "2023-06-13T18:45:00",
+        "DateTimeTill": "2023-06-13T20:15:00",
+        "Place": "Супермаркет",
+        "IsExpired": false
+      }
+    ]
+  },
+  {
+    "Name": "Роман",
+    "Password": "654321",
+    "Events": [
+      {
+        "IsDone": false,
+        "Name": "Відвідати футбольний тренування",
+        "DateTime": "2023-06-10T16:00:00",
+        "DateTimeTill": "2023-06-10T18:00:00",
+        "Place": "Спортивний майданчик",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Заняття настільним тенісом",
+        "DateTime": "2023-06-11T14:00:00",
+        "DateTimeTill": "2023-06-11T15:30:00",
+        "Place": "Спортзал",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Відвідати майстер-клас з малювання",
+        "DateTime": "2023-06-12T10:00:00",
+        "DateTimeTill": "2023-06-12T12:00:00",
+        "Place": "Художня школа",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Грати в комп'ютерну гру з друзями",
+        "DateTime": "2023-06-12T15:00:00",
+        "DateTimeTill": "2023-06-12T17:00:00",
+        "Place": "Домашні умови",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Провести експерименти з науки",
+        "DateTime": "2023-06-13T14:00:00",
+        "DateTimeTill": "2023-06-13T16:00:00",
+        "Place": "Домашні умови",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Піти на каток",
+        "DateTime": "2023-06-14T18:00:00",
+        "DateTimeTill": "2023-06-14T20:00:00",
+        "Place": "Льодова арена",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Подивитися фільм про науку чи космос",
+        "DateTime": "2023-06-15T20:00:00",
+        "DateTimeTill": "2023-06-15T22:00:00",
+        "Place": "Домашні умови",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Відвідати карате тренування",
+        "DateTime": "2023-06-16T17:00:00",
+        "DateTimeTill": "2023-06-16T19:00:00",
+        "Place": "Спортзал",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Піти на концерт улюбленого виконавця",
+        "DateTime": "2023-06-17T19:30:00",
+        "DateTimeTill": "2023-06-17T22:30:00",
+        "Place": "Концертний зал",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Спробувати грати на новому музичному інструменті",
+        "DateTime": "2023-06-18T11:00:00",
+        "DateTimeTill": "2023-06-18T12:30:00",
+        "Place": "Музична школа",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Відвідати виставку машин і технологій",
+        "DateTime": "2023-06-18T15:00:00",
+        "DateTimeTill": "2023-06-18T17:00:00",
+        "Place": "Виставковий центр",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Зайнятися велоспортом",
+        "DateTime": "2023-06-19T09:00:00",
+        "DateTimeTill": "2023-06-19T11:00:00",
+        "Place": "Велосипедний маршрут",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Відвідати наукову лекцію",
+        "DateTime": "2023-06-20T18:00:00",
+        "DateTimeTill": "2023-06-20T19:30:00",
+        "Place": "Університет",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Зіграти в баскетбол з друзями",
+        "DateTime": "2023-06-21T16:00:00",
+        "DateTimeTill": "2023-06-21T18:00:00",
+        "Place": "Спортивний майданчик",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Заняття музикою: грати на гітарі або ударних інструментах",
+        "DateTime": "2023-06-22T14:00:00",
+        "DateTimeTill": "2023-06-22T16:00:00",
+        "Place": "Музична студія",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Відвідати кімнату квесту",
+        "DateTime": "2023-06-23T13:00:00",
+        "DateTimeTill": "2023-06-23T15:00:00",
+        "Place": "Квест-кімната",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Подорожувати на велосипеді по місту",
+        "DateTime": "2023-06-24T10:00:00",
+        "DateTimeTill": "2023-06-24T12:00:00",
+        "Place": "Місто",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Провести ігрову вечірку з друзями",
+        "DateTime": "2023-06-25T18:00:00",
+        "DateTimeTill": "2023-06-25T22:00:00",
+        "Place": "Домашні умови",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Поїхати на водний парк",
+        "DateTime": "2023-06-26T12:00:00",
+        "DateTimeTill": "2023-06-26T17:00:00",
+        "Place": "Водний парк",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Відвідати ролердром",
+        "DateTime": "2023-06-27T16:00:00",
+        "DateTimeTill": "2023-06-27T18:00:00",
+        "Place": "Ролердром",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Зайнятися фотографією",
+        "DateTime": "2023-06-28T15:00:00",
+        "DateTimeTill": "2023-06-28T17:00:00",
+        "Place": "Фотостудія",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Зануритися у світ віртуальної реальності",
+        "DateTime": "2023-06-29T19:00:00",
+        "DateTimeTill": "2023-06-29T21:00:00",
+        "Place": "Віртуальна реальність кафе",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "Грати у стратегічну настільну гру",
+        "DateTime": "2023-06-30T17:00:00",
+        "DateTimeTill": "2023-06-30T20:00:00",
+        "Place": "Домашні умови",
+        "IsExpired": false
+      }
+    ]
+  },
+  {
+    "Name": "Катерина",
+    "Password": "135790",
+    "Events": []
+  },
+  {
+    "Name": "Юлія",
+    "Password": "919191",
+    "Events": []
+  },
+  {
+    "Name": "Ян",
+    "Password": "3434345",
+    "Events": []
+  },
+  {
+    "Name": "абдул",
+    "Password": "2060552",
+    "Events": [
+      {
+        "IsDone": false,
+        "Name": "спорт залл",
+        "DateTime": "2023-06-10T23:25:00",
+        "DateTimeTill": "2023-06-11T04:24:00",
+        "Place": "спортивни зал",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "пртпрт",
+        "DateTime": "2023-06-23T23:39:00",
+        "DateTimeTill": "2023-06-23T23:56:00",
+        "Place": "пртпт",
+        "IsExpired": false
+      },
+      {
+        "IsDone": false,
+        "Name": "4а5аа",
+        "DateTime": "2023-06-27T23:39:00",
+        "DateTimeTill": "2023-06-28T00:39:00",
+        "Place": "куук",
+        "IsExpired": false
+      }
+    ]
+  },
+  {
+    "Name": "Христина",
+    "Password": "147901",
+    "Events": [
+      {
+        "IsDone": false,
+        "Name": "///",
+        "DateTime": "2023-06-10T10:32:00",
+        "DateTimeTill": "2023-06-10T11:32:00",
+        "Place": "///",
+        "IsExpired": false
+      }
+    ]
+  },
+  {
+    "Name": "Олександ",
+    "Password": "345678",
+    "Events": []
+  }
+]
