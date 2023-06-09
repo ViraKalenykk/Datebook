@@ -12,7 +12,7 @@ namespace Курсова__Щоденик_
 	{
 		private bool IsDragging = false;
 		private Point DragStartPosition;
-		private List<Customer> CustomerList = new List<Customer>();
+		private List<Customer>? CustomerList = new List<Customer>();
 
 		public EnterForm()
 		{
@@ -57,7 +57,7 @@ namespace Курсова__Щоденик_
 
 		private void EnterButton_Click(object sender, EventArgs e)
 		{
-			string customerName = CustomerName.Text;
+			string customerName = CustomerName.Text.Trim();
 			string customerPassword = CustomerPassword.Text;
 
 			if (string.IsNullOrWhiteSpace(customerName) || string.IsNullOrWhiteSpace(customerPassword))
@@ -66,7 +66,19 @@ namespace Курсова__Щоденик_
 				return;
 			}
 
-			Customer customer = CustomerList.FirstOrDefault(c => c.Name == customerName && c.Password == customerPassword);
+			if (customerName.Length < 2 || customerName.Length > 100)
+			{
+				MessageBox.Show("Ім'я користувача повинно містити від 2 до 100 символів.", "Помилка");
+				return;
+			}
+
+			if (!System.Text.RegularExpressions.Regex.IsMatch(customerPassword, @"^\d{6}$"))
+			{
+				MessageBox.Show("Пароль повинен містити 6 цифр.", "Помилка");
+				return;
+			}
+
+			Customer? customer = CustomerList?.FirstOrDefault(c => c.Name == customerName && c.Password == customerPassword);
 
 			if (customer != null)
 			{
@@ -95,14 +107,11 @@ namespace Курсова__Щоденик_
 			}
 		}
 
-
 		private void ToRegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			RegisterForm registerForm = new RegisterForm();
 			registerForm.Show();
 			this.Hide();
 		}
-
-
 	}
 }

@@ -12,7 +12,7 @@ namespace Курсова__Щоденик_
 	{
 		private bool IsDragging = false;
 		private Point DragStartPosition;
-		private List<Customer> CustomerList = new List<Customer>();
+		private List<Customer>? CustomerList = new List<Customer>();
 
 		public RegisterForm()
 		{
@@ -20,11 +20,6 @@ namespace Курсова__Щоденик_
 			this.MouseDown += RegisterForm_MouseDown;
 			this.MouseMove += RegisterForm_MouseMove;
 			this.MouseUp += RegisterForm_MouseUp;
-		}
-
-		private void CloseButton_Click(object sender, EventArgs e)
-		{
-			Application.Exit();
 		}
 
 		private void RegisterForm_MouseDown(object? sender, MouseEventArgs e)
@@ -61,16 +56,21 @@ namespace Курсова__Щоденик_
 				return;
 			}
 
-			if (newCustomerName.Length < 2 || newCustomerName.Length > 100 )
+			if (newCustomerName.Length < 2 || newCustomerName.Length > 100)
 			{
-				MessageBox.Show("Ім'я повинно бути не менше 3 і не більше 100 символів.");
+				MessageBox.Show("Ім'я користувача повинно містити від 2 до 100 символів.", "Помилка");
 				return;
 			}
 
-			if (newCustomerPassword.Length < 6)
+			if (!System.Text.RegularExpressions.Regex.IsMatch(newCustomerPassword, @"^\d{6}$"))
 			{
-				MessageBox.Show("Пароль повинен містити принаймні 6 символів.");
+				MessageBox.Show("Пароль користувача повинен містити рівно 6 цифр.", "Помилка");
 				return;
+			}
+
+			if (CustomerList is null)
+			{
+				CustomerList = new List<Customer>();
 			}
 
 			if (CustomerList.Any(c => c.Name == newCustomerName))
@@ -96,7 +96,7 @@ namespace Курсова__Щоденик_
 
 			MessageBox.Show("Реєстрація успішна!");
 
-			EnterForm enterForm = Application.OpenForms.OfType<EnterForm>().FirstOrDefault();
+			EnterForm? enterForm = Application.OpenForms.OfType<EnterForm>().FirstOrDefault();
 			if (enterForm != null)
 			{
 				enterForm.LoadCustomersData();
@@ -128,7 +128,7 @@ namespace Курсова__Щоденик_
 			File.WriteAllText(jsonFilePath, jsonData);
 		}
 
-		private void CloseButton_Click_1(object sender, EventArgs e)
+		private void CloseButton_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
 		}

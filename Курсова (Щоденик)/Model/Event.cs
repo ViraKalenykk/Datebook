@@ -12,6 +12,10 @@ namespace Курсова__Щоденик_.Model
         public DateTime DateTime { get; set; }
         public DateTime DateTimeTill { get; set; }
         public string Place { get; set; }
+        public bool IsExpired
+        {
+            get { return DateTime.Now > DateTimeTill; }
+        }
 
         public Event(bool isDone, string name, DateTime dateTime, DateTime dateTimeTill, string place)
         {
@@ -20,11 +24,6 @@ namespace Курсова__Щоденик_.Model
             this.DateTime = dateTime;
             this.DateTimeTill = dateTimeTill;
             this.Place = place;
-        }
-
-        public bool IsExpired
-        {
-            get { return DateTime.Now > DateTimeTill; }
         }
 
         public override bool Equals(object? obj)
@@ -55,5 +54,4 @@ namespace Курсова__Щоденик_.Model
             }
         }
     }
-
 }

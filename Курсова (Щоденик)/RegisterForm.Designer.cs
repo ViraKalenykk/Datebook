@@ -122,7 +122,7 @@
 			this.CloseButton.TabIndex = 31;
 			this.CloseButton.Text = "X";
 			this.CloseButton.UseVisualStyleBackColor = false;
-			this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click_1);
+			this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
 			// RegisterForm
 			// 
