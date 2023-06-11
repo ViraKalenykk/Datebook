@@ -94,17 +94,8 @@ namespace Курсова__Щоденик_
 
 		public void LoadCustomersData()
 		{
-			string jsonFilePath = "Documents/customer.json";
-
-			if (File.Exists(jsonFilePath))
-			{
-				string jsonData = File.ReadAllText(jsonFilePath);
-				CustomerList = JsonConvert.DeserializeObject<List<Customer>>(jsonData);
-			}
-			else
-			{
-				CustomerList = new List<Customer>();
-			}
+			string jsonFilePath = File.ReadAllText("Documents\\customer.json");
+			CustomerList = JsonConvert.DeserializeObject<List<Customer>>(jsonFilePath);
 		}
 
 		private void ToRegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

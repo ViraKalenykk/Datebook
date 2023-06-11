@@ -9,7 +9,7 @@
         "DateTime": "2023-06-10T08:00:00",
         "DateTimeTill": "2023-06-10T09:00:00",
         "Place": "Спортзал",
-        "IsExpired": false
+        "IsExpired": true
       },
       {
         "IsDone": false,
@@ -17,7 +17,7 @@
         "DateTime": "2023-06-10T12:00:00",
         "DateTimeTill": "2023-06-10T14:00:00",
         "Place": "Вдома",
-        "IsExpired": false
+        "IsExpired": true
       },
       {
         "IsDone": false,
@@ -25,7 +25,7 @@
         "DateTime": "2023-06-10T19:00:00",
         "DateTimeTill": "2023-06-10T23:00:00",
         "Place": "Кафе",
-        "IsExpired": false
+        "IsExpired": true
       },
       {
         "IsDone": false,
@@ -33,7 +33,7 @@
         "DateTime": "2023-06-11T10:00:00",
         "DateTimeTill": "2023-06-11T11:00:00",
         "Place": "Онлайн",
-        "IsExpired": false
+        "IsExpired": true
       },
       {
         "IsDone": false,
@@ -41,7 +41,7 @@
         "DateTime": "2023-06-11T16:00:00",
         "DateTimeTill": "2023-06-11T17:30:00",
         "Place": "Парк",
-        "IsExpired": false
+        "IsExpired": true
       },
       {
         "IsDone": false,
@@ -247,7 +247,7 @@
         "DateTime": "2023-06-10T16:00:00",
         "DateTimeTill": "2023-06-10T18:00:00",
         "Place": "Спортивний майданчик",
-        "IsExpired": false
+        "IsExpired": true
       },
       {
         "IsDone": false,
@@ -255,7 +255,7 @@
         "DateTime": "2023-06-11T14:00:00",
         "DateTimeTill": "2023-06-11T15:30:00",
         "Place": "Спортзал",
-        "IsExpired": false
+        "IsExpired": true
       },
       {
         "IsDone": false,
@@ -452,7 +452,7 @@
         "DateTime": "2023-06-10T23:25:00",
         "DateTimeTill": "2023-06-11T04:24:00",
         "Place": "спортивни зал",
-        "IsExpired": false
+        "IsExpired": true
       },
       {
         "IsDone": false,
@@ -482,13 +482,23 @@
         "DateTime": "2023-06-10T10:32:00",
         "DateTimeTill": "2023-06-10T11:32:00",
         "Place": "///",
-        "IsExpired": false
+        "IsExpired": true
       }
     ]
   },
   {
     "Name": "Олександ",
     "Password": "345678",
+    "Events": []
+  },
+  {
+    "Name": "Марта",
+    "Password": "234567",
+    "Events": []
+  },
+  {
+    "Name": "Андрій",
+    "Password": "987654",
     "Events": []
   }
 ]

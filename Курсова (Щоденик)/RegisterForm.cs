@@ -108,24 +108,14 @@ namespace Курсова__Щоденик_
 
 		public void LoadCustomersData()
 		{
-			string jsonFilePath = "Documents/customer.json";
-
-			if (File.Exists(jsonFilePath))
-			{
-				string jsonData = File.ReadAllText(jsonFilePath);
-				CustomerList = JsonConvert.DeserializeObject<List<Customer>>(jsonData);
-			}
-			else
-			{
-				CustomerList = new List<Customer>();
-			}
+			string jsonFilePath = File.ReadAllText("Documents\\customer.json");
+			CustomerList = JsonConvert.DeserializeObject<List<Customer>>(jsonFilePath);
 		}
 
 		private void SaveCustomersData()
 		{
-			string jsonFilePath = "Documents/customer.json";
 			string jsonData = JsonConvert.SerializeObject(CustomerList);
-			File.WriteAllText(jsonFilePath, jsonData);
+			File.WriteAllText("Documents\\customer.json", jsonData);
 		}
 
 		private void CloseButton_Click(object sender, EventArgs e)
