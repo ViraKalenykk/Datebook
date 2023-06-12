@@ -17,7 +17,7 @@ namespace Курсова__Щоденик_
 		private BindingList<Event> EventList = new BindingList<Event>();
 		private BindingList<Event>? sortedEvents;
 
-		private const string jsonFilePath = "Documents/customer.json";
+		private const string jsonFilePath = "Documents\\customer.json";
 		private const string DateTimeFormat = "dd/MM/yyyy HH:mm";
 		private const string DateFormat = "dd/MM/yyyy";
 		private const string TimeFormat = "HH:mm";
